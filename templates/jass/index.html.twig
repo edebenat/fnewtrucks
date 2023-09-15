@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vehicle index{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href={{asset("css/jass.css")}}>
+{% endblock %}
+
+{% block body %}
+<section class="jass-vehicles">
+    <div class="jass-vehicles-wrapper">
+        <div class="jass-vehicles-title">
+            <h1>Véhicules</h1>
+            <a href="{{ path('app_jass_new') }}" class="jass-vehicles-button blue">+</a>
+        </div>
+        <div class="jass-vehicles-cards">
+            {% for vehicle in vehicles %}
+                <div class="jass-vehicles-card">
+                    <div class="jass-vehicles-images">
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                {% for image in vehicle.images %}
+                                    <div class="swiper-slide">
+                                        <img scr={{ asset(image) }} alt="Véhicule Ford">
+                                    </div>
+                                {% endfor %}
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="jass-vehicles-infos">
+                        <h2>{{ vehicle.model }}</h2>
+                        <p>{{ vehicle.type }} | {{ vehicle.gears }} | {{ vehicle.enginePower }} | {{ vehicle.state }}{% if vehicle.mileageFromOdometer is not null %} | {{ vehicle.mileageFromOdometer }}{% endif %}</p>
+                        <p class="jass-vehicles-equipments">Équipements :</p>
+                        <p class="jass-vehicles-equipments">{{ vehicle.equipments }}</p>
+                        <p class="jass-vehicles-guarantee">{{ vehicle.guarantee }}</p>
+                    </div>
+                    <div class="jass-vehicles-edit">
+                        <a href={{ path('app_jass_edit', {'id': vehicle.id}) }} class="jass-vehicles-button green">edit</a>
+                        <a href={{ path('app_jass_delete', {'id': vehicle.id}) }} class="jass-vehicles-button red">suppr</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

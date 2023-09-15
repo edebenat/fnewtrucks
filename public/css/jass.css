@@ -1,0 +1,64 @@
+.jass-vehicles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.jass-vehicles-wrapper{
+    width: 100%;
+    max-width: 1200px;
+}
+.jass-vehicles-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+.jass-vehicles-button{
+    text-decoration: none;
+    color: white;
+    padding: 0.5em 0.7em;
+    border-radius: 5px;
+}
+.jass-vehicles-button.blue{
+    background-color: blue;
+}
+.jass-vehicles-button.green{
+    background-color: green;
+}
+.jass-vehicles-button.red{
+    background-color: red;
+}
+.jass-vehicles-cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2em;
+    color: #1d315a;
+}
+.jass-vehicles-card{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.jass-vehicles-infos{
+    border: 1px solid #1d315a;
+    border-top: none;
+    padding: 1em 1.4em;
+}
+.jass-vehicles-infos p{
+    line-height: 1.4em;
+}
+.jass-vehicles-equipments{
+    margin: 0;
+
+}
+.jass-vehicles-guarantee{
+    font-weight: bold;
+}
+.jass-vehicles-edit{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}

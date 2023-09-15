@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vehicle{% endblock %}
+
+{% block body %}
+    <h1>Vehicle</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ vehicle.id }}</td>
+            </tr>
+            <tr>
+                <th>Model</th>
+                <td>{{ vehicle.model }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ vehicle.type }}</td>
+            </tr>
+            <tr>
+                <th>Gears</th>
+                <td>{{ vehicle.gears }}</td>
+            </tr>
+            <tr>
+                <th>EnginePower</th>
+                <td>{{ vehicle.enginePower }}</td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td>{{ vehicle.state }}</td>
+            </tr>
+            <tr>
+                <th>MileageFromOdometer</th>
+                <td>{{ vehicle.mileageFromOdometer }}</td>
+            </tr>
+            <tr>
+                <th>Equipments</th>
+                <td>{{ vehicle.equipments }}</td>
+            </tr>
+            <tr>
+                <th>Guarantee</th>
+                <td>{{ vehicle.guarantee }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ vehicle.createdAt ? vehicle.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Images</th>
+                <td>{{ vehicle.images ? vehicle.images|join(', ') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_jass_index') }}">back to list</a>
+
+    <a href="{{ path('app_jass_edit', {'id': vehicle.id}) }}">edit</a>
+
+    {{ include('jass/_delete_form.html.twig') }}
+{% endblock %}

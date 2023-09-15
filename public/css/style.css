@@ -1,0 +1,497 @@
+body{
+    font-family: itc-avant-garde-gothic-pro, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+.fnt-landing{
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+#background{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 100%;
+}
+.fnt-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#logo-f-new-trucks{
+    position: absolute;
+    top: 0;
+    left: 3%;
+    width: 25%;
+}
+#carte-france{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    max-width: 20%;
+    max-height: 33vh;
+}
+#carte-departements{
+    position: absolute;
+    right: -20px;
+    bottom: 40px;
+    max-width: 35%;
+    max-height: 75vh;
+}
+.fnt-cta{
+    position: absolute;
+    left: 3%;
+    bottom: 20px;
+}
+.fnt-cta a{
+    color: white;
+    text-decoration: none;
+    background-color: #ED6227;
+    padding: 12px 12px 10px;
+    border-radius: 5px;
+    border: 2px solid #ED6227;
+    transition: all 0.3s;
+}
+.fnt-cta a:hover{
+    background-color: transparent;
+}
+.fnt-cta h1{
+    color: white;
+    font-size: 40px;
+    line-height: 48px;
+    margin-top: 52px;
+}
+
+.fnt-contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(90deg, #ED6227 0%, #ED6227 50%, #1d315a 50%, #1d315a 100%);
+}
+.fnt-contact-title{
+    text-align: center;
+    color: #1d315a;
+    margin: 46px 0;
+}
+.fnt-contact-title h2{
+    font-size: 32px;
+    margin: 16px 0 0;
+}
+.fnt-contact-title p{
+    font-weight: 100;
+    font-size: 18px;
+}
+.fnt-departements{
+    display: flex;
+    color: white;
+    width: 100%;
+    max-width: 1200px;
+}
+.fnt-col1{
+    flex: 1;
+    padding: 3% 3% 3% 0;
+}
+.fnt-col2{
+    flex: 1;
+    padding: 3% 0 3% 3%;
+}
+.fnt-col1 h3, .fnt-col2 h3{
+    margin-bottom: 5px;
+    font-size: 26px;
+    position: relative;
+    max-width: fit-content;
+}
+.fnt-col1 h3::after{
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: #1d315a;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+}
+.fnt-col2 h3::after{
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: #ED6227;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+}
+.fnt-col1 h4{
+    text-transform: uppercase;
+    margin: 2em 0 1em;
+    color: #1d315a;
+    font-size: 24px;
+}
+.fnt-col2 h4{
+    text-transform: uppercase;
+    margin: 2em 0 1em;
+    color: #ED6227;
+    font-size: 24px;
+}
+.fnt-col1 h5, .fnt-col2 h5{
+    margin: 0;
+    font-size: 22px;
+}
+.fnt-col1{
+    background-color: #ED6227;
+}
+.fnt-col1 hr{
+    height: 3px;
+    width: 150px;
+    background-color: #1d315a;
+    border: none;
+    margin: 0;
+}
+.fnt-col2{
+    background-color: #1d315a;
+}
+.fnt-col2 hr{
+    height: 3px;
+    width: 150px;
+    background-color: #ED6227;
+    border: none;
+    margin: 0;
+}
+.fnt-midcol{
+    width: 15%;
+    background: linear-gradient(115deg, #ED6227 0, #ED6227 48%, white 48%, white 51%, #1d315a 51%, #1d315a 100%);
+}
+.fnt-av-commerce{
+    display: flex;
+    justify-content: space-between;
+}
+.fnt-av-commerce a{
+    color: white;
+    text-decoration: none;
+}
+.fnt-av-commerce p{
+    font-weight: 100;
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 7px;
+}
+.fnt-logo{
+    width: 130px;
+}
+footer{
+    background-color: black;
+    padding: 30px;
+}
+.fnt-footer{
+    margin-top: 24px;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: baseline;
+    gap: 40px;
+}
+.fnt-footer a{
+    color: white;
+    text-decoration: none;
+}
+.fnt-logo-last{
+    margin-left: auto;
+}
+
+@media screen and (max-width: 1200px) {
+    body{
+        overflow-x: hidden;
+    }
+    #logo-f-new-trucks{
+        left: 16px;
+        height: 70px;
+        width: unset;
+    }
+    #carte-france, #carte-departements{
+        display: none;
+    }
+    .fnt-departements{
+        flex-direction: column;
+    }
+    .fnt-midcol{
+        width: 100%;
+        height: 60px;
+        background: linear-gradient(175deg, #ED6227 0, #ED6227 47%, white 47%, white 52%, #1d315a 52%, #1d315a 100%);
+    }
+    .fnt-av-commerce{
+        gap: 1em;
+    }
+    .fnt-col1, .fnt-col2{
+        padding: 16px;
+    }
+    footer{
+        padding: 16px;
+    }
+    .fnt-footer{
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 1200px) {
+    #background{
+        top: 0;
+        transform: unset;
+        width: unset;
+        height: 100%;
+        left: 0;
+    }
+}
+@media screen and (max-width: 599px) {
+    #background{
+        top: 0;
+        transform: translateX(-39%);
+        width: unset;
+        height: 100%;
+        left: 50%;
+    }
+}
+@media screen and (max-width: 1600px) {
+    .fnt-av-commerce p{
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .fnt-col1 h3, .fnt-col2 h3 {
+        font-size: 24px;
+    }
+    .fnt-col1 h4, .fnt-col2 h4{
+        font-size: 22px;
+    }
+    .fnt-col1 h5, .fnt-col2 h5{
+        font-size: 20px;
+    }
+}
+
+.fnt-mentions{
+    margin: 0 32px;
+}
+.fnt-mentions h1{
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+
+/* ------------------------ */
+
+img{
+    max-width: 100%;
+}
+header{
+    position: sticky;
+    top: 0;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 0;
+    z-index: 10;
+}
+.headerWrapper{
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    align-items: center;
+    justify-content: space-between;
+}
+.headerMenu{
+    align-self: end;
+    margin-bottom: 0.6em;
+}
+.headerMenu ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4em;
+}
+.headerMenu a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    position: relative;
+}
+.headerMenu a::after{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: white;
+    transition: all 0.3s;
+}
+.headerMenu a:hover::after{
+    width: 100%;
+}
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.footerWrapper{
+    width: 100%;
+    max-width: 1200px;
+}
+.homeTop{
+    position: relative;
+}
+.homeTopOverlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.homeTopWrapper{
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+}
+.homeTopWrapper h1{
+    color: #1d315a;
+    font-size: 2.6em;
+    line-height: 1.2em;
+    font-weight: bold;
+}
+.homeTopButtons{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+.btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    text-decoration: none;
+    border: 2px solid #f36b34;
+    border-radius: 5px;
+    padding: 0.5em 0.3em 0.5em 0.5em;
+    font-weight: 100;
+    transition: all 0.3s;
+    padding: 0.5em 0.3em 0.5em 0.5em;
+}
+.btn span{
+    margin-top: 2px;
+}
+.btnOrange{
+    background-color: #f36b34;
+    color: white;
+}
+.btnOrange img{
+    filter: brightness(0) invert(1);
+}
+.btnOrange:hover{
+    background-color: transparent;
+    color: #f36b34;
+}
+.btnOrange:hover img{
+    filter: brightness(1) invert(0);
+}
+.btnTransparent{
+    background-color: transparent;
+    color: #f36b34;
+}
+.btnTransparent:hover{
+    background-color: #f36b34;
+    color: white;
+}
+.btnTransparent:hover img{
+    filter: brightness(0) invert(1);
+}
+.fnt-cat-section{
+    margin: 3em auto 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.fnt-cat-wrapper{
+    width: 100%;
+    max-width: 1200px;
+}
+.fnt-cat-section h2{
+    text-align: center;
+    font-size: 32px;
+    color: #1d315a;
+    margin-bottom: 0;
+}
+.fnt-cat-section h2 span{
+    color: #ED6227;
+}
+.fnt-cat-section p{
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 5em;
+    color: #1d315a;
+}
+.fnt-categories{
+    display: flex;
+    /*max-width: 1400px;*/
+    justify-content: space-between;
+    align-items: center;
+    gap: 0em;
+    margin: auto;
+}
+.fnt-categories a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.fnt-categories a:hover{
+    scale: 1.1;
+}
+.fnt-categories img{
+    max-width: 100%;
+}
+.fnt-categories span{
+    font-size: 2em;
+    font-weight: bold;
+    color: #ccc;
+}
+.homeVehicles{
+    background-color: #ececeb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 0 4em;
+}
+.homeVehiclesWrapper{
+    width: 100%;
+    max-width: 1200px;
+}
+.homeVehiclesWrapper h2{
+    font-size: 32px;
+    color: #1d315a;
+    margin-bottom: 0;
+}
+.homeVehiclesWrapper p{
+    font-size: 22px;
+    margin-bottom: 5em;
+    color: #1d315a;
+}
+.homeVehiclesButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
