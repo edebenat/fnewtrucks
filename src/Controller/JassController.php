@@ -29,7 +29,7 @@ class JassController extends AbstractController
         $vehicle = new Vehicle();
         $vehicle->setCreatedAt(new DateTimeImmutable('now'));
         $vehicle->setActive(false);
-        
+
         $form = $this->createForm(VehicleType::class, $vehicle);
         $form->handleRequest($request);
 
@@ -81,5 +81,20 @@ class JassController extends AbstractController
         }
 
         return $this->redirectToRoute('app_jass_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/{id}/activate', name: 'app_jass_activate')]
+    public function activate(Request $request, Vehicle $vehicle, EntityManagerInterface $entityManager): Response
+    {
+        if ($vehicle->isActive()) {
+            $vehicle->setActive(false);
+        }
+        else {
+            $vehicle->setActive(true);
+        }
+        $entityManager->persist($vehicle);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_jass_index');
     }
 }

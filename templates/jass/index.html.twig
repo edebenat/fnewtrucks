@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Vehicle index{% endblock %}
+{% block title %}Véhicules{% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href={{asset("css/jass.css")}}>
 {% endblock %}
@@ -14,8 +14,13 @@
         </div>
         <div class="jass-vehicles-cards">
             {% for vehicle in vehicles %}
+                {% if vehicle.isActive() == false %}
+                    {% set card_class = 'inactive' %}
+                {% else %}
+                    {% set card_class = '' %}
+                {% endif %}
                 <div class="jass-vehicles-card">
-                    <div class="jass-vehicles-images">
+                    <div class="jass-vehicles-images {{card_class}}">
                         <div class="swiper">
                             <div class="swiper-wrapper">
                                 {% for image in vehicle.images %}
@@ -27,7 +32,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="jass-vehicles-infos">
+                    <div class="jass-vehicles-infos {{card_class}}">
                         <h2>{{ vehicle.model }}</h2>
                         <p>{{ vehicle.type }} | {{ vehicle.gears }} | {{ vehicle.enginePower }} | {{ vehicle.state }}{% if vehicle.mileageFromOdometer is not null %} | {{ vehicle.mileageFromOdometer }}{% endif %}</p>
                         <p class="jass-vehicles-equipments">Équipements :</p>
@@ -36,7 +41,21 @@
                     </div>
                     <div class="jass-vehicles-edit">
                         <a href={{ path('app_jass_edit', {'id': vehicle.id}) }} class="jass-vehicles-button green">edit</a>
+                        {{ include('jass/_delete_form.html.twig') }}
+                        {#
                         <a href={{ path('app_jass_delete', {'id': vehicle.id}) }} class="jass-vehicles-button red">suppr</a>
+                        #}
+                    </div>
+                    <div class="jass-vehicles-activate">
+                    {% if vehicle.isActive() %}
+                        <a href={{ path('app_jass_activate', {'id': vehicle.id}) }} class="jass-vehicles-button red">
+                            Désactiver
+                        </a>
+                    {% else %}
+                        <a href={{ path('app_jass_activate', {'id': vehicle.id}) }} class="jass-vehicles-button green">
+                            Activer
+                        </a>
+                    {% endif %}
                     </div>
                 </div>
             {% endfor %}

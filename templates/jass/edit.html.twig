@@ -1,13 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Vehicle{% endblock %}
+{% block title %}Editer Véhicule{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href={{asset("css/jass.css")}}>
+{% endblock %}
 
 {% block body %}
-    <h1>Edit Vehicle</h1>
+<section class="jass-vehicles">
+    <div class="jass-vehicles-wrapper">
+        <h1>Editer Véhicule</h1>
 
     {{ include('jass/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('app_jass_index') }}">back to list</a>
 
     {{ include('jass/_delete_form.html.twig') }}
+
+    </div>
+</section>
 {% endblock %}
