@@ -1,4 +1,7 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="jass-vehicles-editbtn">
+        <button class="jass-vehicles-button green">{{ button_label|default('Valider') }}</button>
+        <a href="{{ path('app_jass_index') }}" class="jass-vehicles-button red">Annuler</a>
+    </div>
 {{ form_end(form) }}
