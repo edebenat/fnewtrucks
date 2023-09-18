@@ -1,0 +1,23 @@
+<div class="jass-vehicles-image">
+    <img src={{ asset(image) }}>
+    <button class="jass-vehicles-button red jass-remove-image" onclick="imageDelete($(this), {{ vehicle.id }}, {{ key }});">suppr</button>
+</div>
+<script>
+    function imageDelete(element, id, position){
+        if (ajaxReady == true) {
+            ajaxReady = false;
+            $.ajax({
+                url: Routing.generate('del_picture'),
+                type: 'POST',
+                data: {
+                    'id': id,
+                    'position': position
+                }
+            })
+            .done(function(data){
+                element.parent('.jass-vehicles-image').remove();
+                ajaxReady = true;
+            });
+        }
+    }
+</script>

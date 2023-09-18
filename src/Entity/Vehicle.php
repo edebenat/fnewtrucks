@@ -14,7 +14,7 @@ class Vehicle
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $model = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -57,7 +57,7 @@ class Vehicle
         return $this->model;
     }
 
-    public function setModel(string $model): static
+    public function setModel(?string $model): static
     {
         $this->model = $model;
 

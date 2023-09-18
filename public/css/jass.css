@@ -50,6 +50,9 @@
     border: 1px solid #1d315a;
     border-top: none;
     padding: 1em 1.4em;
+    gap: 1em;
+    display: flex;
+    flex-direction: column;
 }
 .jass-vehicles-infos.inactive{
     filter: opacity(0.5);
@@ -59,7 +62,6 @@
 }
 .jass-vehicles-equipments{
     margin: 0;
-
 }
 .jass-vehicles-guarantee{
     font-weight: bold;
@@ -80,4 +82,61 @@
     flex-direction: row;
     align-items: center;
     gap: 1em;
+}
+.jass-vehicles-details{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    
+}
+#jass-image-upload{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: none;
+}
+#jass-image-upload.show{
+    display: flex;
+}
+.jass-image-wrapper{
+    padding: 2em;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+}
+#jass-image-cancel{
+    font-size: 0.9em;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.jass-vehicles-images-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+.jass-vehicles-images{
+    flex: 1;
+}
+.jass-form-fields div{
+    display: flex;
+    flex-direction: column;
+}
+.jass-vehicles-image{
+    position: relative;
+}
+.jass-remove-image{
+    position: absolute;
+    top: 2px;
+    right: 2px;
 }

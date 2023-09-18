@@ -1,5 +1,29 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    <div class="jass-vehicles-card">
+        <div class="jass-vehicles-infos">
+            <div class="jass-form-fields">
+                {{ form_widget(form.model) }}
+            </div>
+            <div class="jass-form-fields">
+                {{ form_widget(form.type) }}
+                <span> / </span>
+                {{ form_widget(form.gears) }}
+                <span> / </span>
+                {{ form_widget(form.enginePower) }}
+                <span> / </span>
+                {{ form_widget(form.state) }}
+                <span> / </span>
+                {{ form_widget(form.mileageFromOdometer) }}
+            </div>
+            <div class="jass-form-fields">
+                {{ form_row(form.equipments) }}
+            </div>
+            <div class="jass-form-fields">
+                {{ form_widget(form.guarantee) }}
+            </div>
+            {{ form_widget(form) }}
+        </div>
+    </div>
     <div class="jass-vehicles-editbtn">
         <button class="jass-vehicles-button green">{{ button_label|default('Valider') }}</button>
         <a href="{{ path('app_jass_index') }}" class="jass-vehicles-button red">Annuler</a>

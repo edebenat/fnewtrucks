@@ -15,35 +15,59 @@ class VehicleType extends AbstractType
     {
         $builder
             ->add('model', TextType::class, [
-                'label' => 'Modèle'
+                'label' => 'Modèle',
+                'attr' => [
+                    'placeholder' => 'Ford F-Max'
+                ]
             ])
             ->add('type', TextType::class, [
                 'label' => 'Type',
-                'required' => false
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Tracteur'
+                ]
             ])
             ->add('gears', TextType::class, [
                 'label' => 'Essieux',
-                'required' => false
+                'required' => false,
+                'attr' => [
+                    'placeholder' => '4x2'
+                ]
             ])
             ->add('enginePower', TextType::class, [
                 'label' => 'Puissance',
-                'required' => false
+                'required' => false,
+                'attr' => [
+                    'placeholder' => '500 cv'
+                ]
             ])
             ->add('state', TextType::class, [
                 'label' => 'Neuf/Occasion',
-                'required' => false
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Occasion'
+                ]
             ])
             ->add('mileageFromOdometer', TextType::class, [
                 'label' => 'Kilométrage',
-                'required' => false
+                'required' => false,
+                'attr' => [
+                    'placeholder' => '55 000 kms'
+                ]
             ])
             ->add('equipments', TextareaType::class, [
                 'label' => 'Equipements',
-                'required' => false
+                'required' => false,
+                'attr' => [
+                    'rows' => 10
+                ]
             ])
             ->add('guarantee', TextType::class, [
                 'label' => 'Garantie',
-                'required' => false
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Garantie constructeur jusqu’au 00/00/0000'
+                ]
             ])
         ;
     }

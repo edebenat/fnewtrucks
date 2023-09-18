@@ -5,13 +5,36 @@
     <link rel="stylesheet" href={{asset("css/jass.css")}}>
 {% endblock %}
 
+{% block javascripts %}
+    <script src={{ asset('js/jass.js') }}></script>
+{% endblock %}
+
 {% block body %}
 <section class="jass-vehicles">
     <div class="jass-vehicles-wrapper">
         <h1>Editer Véhicule</h1>
-
+        <div class="jass-vehicles-details">
             {{ include('jass/_form.html.twig') }}
-
+            <div class="jass-vehicles-images">
+                <div class="jass-vehicles-images-title">
+                    <h2>Images</h2>
+                    <button id="jass-add-image" class="jass-vehicles-button blue">+</button>
+                </div>
+                {% for key, image in vehicle.images %}
+                    <div class="jass-vehicles-image">
+                        <img src={{ asset(image) }}>
+                        <button class="jass-vehicles-button red jass-remove-image" data-id={{ vehicle.id }} data-position={{ key }}>suppr</button>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </section>
+
+<div id="jass-image-upload">
+    <div class="jass-image-wrapper">
+        <input type="file" id="jass-image-file" name="jass-image-file" data-id={{ vehicle.id }}>
+        <span id="jass-image-cancel">Annuler</span>
+    </div>
+</div>
 {% endblock %}
