@@ -2,7 +2,12 @@
 
 {% block title %}Véhicules{% endblock %}
 {% block stylesheets %}
+    <link rel="stylesheet" href={{asset("bundles/swiperjs/swiper-bundle.min.css")}}>
     <link rel="stylesheet" href={{asset("css/jass.css")}}>
+{% endblock %}
+
+{% block javascripts %}
+    <script src={{ asset('bundles/swiperjs/swiper-bundle.min.js') }}></script>
 {% endblock %}
 
 {% block body %}
@@ -25,10 +30,12 @@
                             <div class="swiper-wrapper">
                                 {% for image in vehicle.images %}
                                     <div class="swiper-slide">
-                                        <img src={{ asset(image) }} alt="Véhicule Ford">
+                                        <img src={{ image | imagine_filter('vehicle') }} alt="Véhicule Ford">
                                     </div>
                                 {% endfor %}
                                 <div class="swiper-pagination"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
                             </div>
                         </div>
                     </div>
@@ -62,4 +69,23 @@
         </div>
     </div>
 </section>
+
+<script>
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
 {% endblock %}

@@ -2,6 +2,14 @@
 
 {% block title %}F New Trucks - Un vent Ford souffle par l'ouest...{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href={{asset("bundles/swiperjs/swiper-bundle.min.css")}}>
+{% endblock %}
+
+{% block javascripts %}
+    <script src={{ asset('bundles/swiperjs/swiper-bundle.min.js') }}></script>
+{% endblock %}
+
 {% block body %}
 <section class="homeTop">
     <img src={{ asset('images/home1.jpg') }} alt="Camions Ford">
@@ -39,9 +47,34 @@
 
 <section class="homeVehicles">
     <div class="homeVehiclesWrapper">
-        <h2>Nos véhicules prêts à partir</h2>
-        <p>Découvrez nos poids lourds disponibles de suite.</p>
+        <h2 class="homeVehiclesTitle">Nos véhicules prêts à partir</h2>
+        <p class="homeVehiclesSubtitle">Découvrez nos poids lourds disponibles de suite.</p>
         <div class="homeVehiclesVehicles">
+            {% for vehicle in vehicles %}
+                <div class="homeVehiclesCard">
+                    <div class="jass-vehicles-images">
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                {% for image in vehicle.images %}
+                                    <div class="swiper-slide">
+                                        <img src={{ image | imagine_filter('vehicle') }} alt="Véhicule Ford">
+                                    </div>
+                                {% endfor %}
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="homeVehiclesInfos">
+                        <h2>{{ vehicle.model }}</h2>
+                        <p>{{ vehicle.type }} | {{ vehicle.gears }} | {{ vehicle.enginePower }} | {{ vehicle.state }}{% if vehicle.mileageFromOdometer is not null %} | {{ vehicle.mileageFromOdometer }}{% endif %}</p>
+                        <p class="homeVehiclesEquipments">Équipements :</p>
+                        <p class="homeVehiclesEquipments">{{ vehicle.equipments }}</p>
+                        <p class="homeVehiclesGuarantee">{{ vehicle.guarantee }}</p>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
         <div class="homeVehiclesButton">
             <a href="#" class="btn btnOrange"><span>Voir tous les véhicules en stock</span><img src={{ asset('images/orange-arrow.png') }}></a>
@@ -102,4 +135,24 @@
         </div>
     </div>
 </section>
+
+<script>
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+
 {% endblock %}

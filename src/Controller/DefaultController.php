@@ -12,7 +12,7 @@ class DefaultController extends AbstractController
     #[Route('/', name: 'home')]
     public function home(VehicleRepository $vehicleRepository): Response
     {
-        $vehicles = $vehicleRepository->findBy(['active' => true], ['createdAt' => 'DESC']);
+        $vehicles = $vehicleRepository->findBy(['active' => true], ['createdAt' => 'DESC'], 3);
 
         return $this->render('default/home.html.twig', [
             'vehicles' => $vehicles,
