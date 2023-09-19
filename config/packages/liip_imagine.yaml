@@ -29,4 +29,10 @@ liip_imagine:
             format: webp
             filters:
                 thumbnail: {size: [400, 250], mode: outbound}
-                
+
+        homeVehicle:
+            quality: 75
+            format: webp
+            filters:
+                thumbnail: {size: [400, 400], mode: outbound}
+
