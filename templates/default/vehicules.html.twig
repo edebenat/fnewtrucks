@@ -4,10 +4,13 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href={{asset("bundles/swiperjs/swiper-bundle.min.css")}}>
+    <link rel="stylesheet" href={{asset("bundles/slick/slick.css")}}>
+    <link rel="stylesheet" href={{asset("bundles/slick/slick-theme.css")}}>
 {% endblock %}
 
 {% block javascripts %}
     <script src={{ asset('bundles/swiperjs/swiper-bundle.min.js') }}></script>
+    <script src={{ asset('bundles/slick/slick.min.js') }}></script>
 {% endblock %}
 
 {% block body %}
@@ -18,7 +21,7 @@
             <h1>Notre politique :<br>des véhicules prêts à partir</h1>
             <p>Chez F New Trucks, nous mettons tout en oeuvre pour<br>vous proposer des véhicules disponibles de suite.</p>
             <div class="vehiclesTopButtons">
-                <a href="#" class="btn btnOrange"><span>Nous contacter</span><img src={{ asset('images/orange-arrow.png') }}></a>
+                <a href={{ path('contact') }} class="btn btnOrange"><span>Nous contacter</span><img src={{ asset('images/orange-arrow.png') }}></a>
             </div>
         </div>
     </div>
@@ -27,7 +30,7 @@
 <section class="vehiclesVehicles">
     <div class="vehiclesVehiclesWrapper">
         <div class="vehiclesVehiclesNew">
-            <div class="swiper" id="newSwiper">
+{#            <div class="swiper" id="newSwiper">
                 <div class="swiper-wrapper">
                     {% for image in newVehicle.images %}
                     <div class="swiper-slide">
@@ -38,6 +41,13 @@
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
                 </div>
+            </div>
+#}            <div class="slick" id="newSwiper">
+                {% for image in newVehicle.images %}
+                <div class="swiper-slide">
+                    <img src={{ asset(image) }}>
+                </div>                
+                {% endfor %}
             </div>
             <div class="vehiclesVehiclesnewInfos">
                 <h2>{{ newVehicle.model }}</h2>
@@ -53,6 +63,7 @@
             {% for vehicle in vehicles %}
                 <div class="vehiclesVehiclesCard">
                     <div class="vehiclesVehiclesImages">
+{#
                         <div class="swiper">
                             <div class="swiper-wrapper">
                                 {% for image in vehicle.images %}
@@ -64,6 +75,14 @@
                                 <div class="swiper-button-prev"></div>
                                 <div class="swiper-button-next"></div>
                             </div>
+                        </div>
+#}
+                        <div class="slick">
+                            {% for image in vehicle.images %}
+                                <div class="swiper-slide">
+                                    <img src={{ image | imagine_filter('vehicle') }} alt="Véhicule Ford">
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="vehiclesVehiclesInfos">
@@ -131,7 +150,13 @@
         </div>
     </div>
 </section>
-
+<script>
+    $(document).ready(function(){
+        $('.slick').slick({
+            dots: true
+        });
+    });
+</script>
 <script>
     const swiper = new Swiper('.swiper', {
         // Optional parameters

@@ -17,8 +17,8 @@
         <div class="homeTopWrapper">
             <h1>Un vent Ford<br>souffle par l'ouest...</h1>
             <div class="homeTopButtons">
-                <a href="#" class="btn btnOrange"><span>Nos véhicules en stock</span><img src={{ asset('images/orange-arrow.png') }}></a>
-                <a href="#" class="btn btnTransparent"><span>Découvrir Ford Trucks</span><img src={{ asset('images/orange-arrow.png') }}></a>
+                <a href={{ path('vehicules') }} class="btn btnOrange"><span>Nos véhicules en stock</span><img src={{ asset('images/orange-arrow.png') }}></a>
+                <a href="https://fordtrucks.com.tr/fr/" target="_blank" class="btn btnTransparent"><span>Découvrir Ford Trucks</span><img src={{ asset('images/orange-arrow.png') }}></a>
             </div>
         </div>
     </div>
@@ -60,7 +60,7 @@
                     <div class="homeVehiclesInfos">
                         <h2>{{ vehicle.model }}</h2>
                         <p>{{ vehicle.type }} | {{ vehicle.gears }} | {{ vehicle.enginePower }}<br>{{ vehicle.state }}{% if vehicle.mileageFromOdometer is not null %} | {{ vehicle.mileageFromOdometer }}{% endif %}</p>
-                        <a href="#"><span>En savoir plus</span><img src={{ asset('images/orange-arrow.png') }}></a>
+                        <a href={{ path('vehicules') }}><span>En savoir plus</span><img src={{ asset('images/orange-arrow.png') }}></a>
                     </div>
                 </div>
             {% endfor %}

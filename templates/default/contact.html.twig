@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}F New Trucks - Nos véhicules en stock{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href={{asset("bundles/leaflet/leaflet.css")}}>
+{% endblock %}
+
+{% block javascripts %}
+    <script src={{ asset('bundles/leaflet/leaflet.js') }}></script>
+{% endblock %}
+
+{% block body %}
+<section class="contactTop">
+    <img src={{ asset('images/contact1.jpg') }} alt="Camions Ford">
+    <div class="contactTopOverlay">
+        <div class="contactTopWrapper">
+            <h1>Agences et contacts</h1>
+            <p>Bienvenue dans notre concession poids lourds F New Trucks.<br>Nous nous tenons à votre disposition pour tout renseignement<br>sur nos véhicules ou notre service après-vente.</p>
+        </div>
+    </div>
+</section>
+
+<section class="contactBody">
+    <div class="contactContacts">
+        <div class="contactDepartements">
+            <div class="contactBg1">
+                <div class="contactCol1">
+                    <h3>Départements 17, 79, 86</h3>
+                    <div class="contactCommerce">
+                        <div class="fnt-av">
+                            <h4>Après-vente</h4>
+                            <h5>F NEW TRUCKS 79</h5>
+                            <p>
+                                Garage Jaulin<br>
+                                11 avenue Charles de Gaulle<br>
+                                79400 Saint-Maixent-l’École<br>
+                                <a href="tel:+33549056504">05 49 05 65 04</a>
+                            </p>
+                            <img src={{asset("images/logo-jaulin.png")}} alt="Garage Jaulin" class="contactLogo">
+                        </div>
+                        <div>
+                            <h4>Commerce</h4>
+                            <h5>Boris VADELEAU</h5>
+                            <p>
+                                <a href="mailto:b.vadeleau@fnewtrucks.fr">b.vadeleau@fnewtrucks.fr</a>
+                                <br>
+                                <a href="tel:+33616334331">06 16 33 43 31</a>
+                            </p>
+                        </div>
+                    </div>
+                    <img src={{ asset('images/carte-france.png') }} alt="Carte de France" id="contactFrance">
+                </div>
+            </div>
+            <div class="contactBg2">
+                <div class="contactCol2">
+                    <h3>Départements 16, 19, 23, 24, 87</h3>
+                    <div class="contactCommerce">
+                        <div class="fnt-av">
+                            <h4>Après-vente</h4>
+                            <h5>F NEW TRUCKS 87</h5>
+                            <p>
+                                Garage C.E.A.P.L.<br>
+                                10-12 route du Verdoyer<br>
+                                87430 Verneuil-sur-Vienne<br>
+                                <a href="tel:+33555480483">05 55 48 04 83</a>
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Commerce</h4>
+                            <h5>Thomas TROUSSARD</h5>
+                            <p>
+                                <a href="mailto:t.troussard@fnewtrucks.fr">t.troussard@fnewtrucks.fr</a>
+                                <br>
+                                <a href="tel:+33679813600">06 79 81 36 00</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contactMap" id="map">
+    </div>
+</section>
+
+<script>
+    $(document).ready(function(){
+        var map = L.map('map').setView([46.0383664, 0.1579431,8.75], 8);
+        L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/about" target="_blank">OpenStreetMap</a>'
+        }).addTo(map);
+
+        var orangeIcon = L.divIcon({className: 'orange-icon'});
+
+        var jaulin = L.marker([46.4214743, -0.209751], {icon: orangeIcon})
+            .addTo(map)
+            .bindPopup("<b>Garage Jaulin</b><br>11 avenue Charles de Gaulle<br>79400 Saint-Maixent-l’École");
+
+        var ceapl = L.marker([45.8496109, 1.1622291], {icon: orangeIcon})
+            .addTo(map)
+            .bindPopup("<b>Garage C.E.A.P.L.</b><br>10-12 route du Verdoyer<br>87430 Verneuil-sur-Vienne");
+    });
+</script>
+
+{% endblock %}
+{#
+var map = L.map('leaflet').setView([45.5566124, 0.1121368,8.75], 7);
+
+L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+var redIcon = L.divIcon({className: 'red-icon'});
+
+var angouleme = L.marker([45.772450111049146, 0.18717733291153285], {icon: redIcon})
+    .addTo(map)
+    .bindPopup("<b>Agence Anais</b><br>La touche d’anais<br>16560 ANAIS");
+var bergerac = L.marker([44.83648184897008, 0.49475772125424866], {icon: redIcon})
+    .addTo(map)
+    .bindPopup("<b>Agence Bergerac</b><br>7 route saint nexans");
+var brive = L.marker([45.156848203305195, 1.4743665323194062], {icon: redIcon})
+    .addTo(map)
+    .bindPopup("<b>Agence Brive</b><br>ZI la marquisie<br>19100 BRIVE");
+var larochelle = L.marker([46.17452376447192, -1.2091034307917363], {icon: redIcon})
+    .addTo(map)
+    .bindPopup("<b>Agence La Rochelle</b><br>50 rue robert geffré<br>17000 LA ROCHELLE");
+var perigueux = L.marker([45.15861385044508, 0.7872087232802455], {icon: redIcon})
+    .addTo(map)
+    .bindPopup("<b>Agence Périgueux</b><br>Grand font<br>24330 SAINT LAURENT SUR MANOIRE");
+var saintes = L.marker([45.72189304187219, -0.6424199318918821], {icon: redIcon})
+    .addTo(map)
+    .bindPopup("<b>Agence Saintes</b><br>12 avenue de gémozac<br>17100 SAINTES");
+#}
