@@ -36,4 +36,16 @@ class DefaultController extends AbstractController
     {
         return $this->render('default/contact.html.twig');
     }
+
+    #[Route('/mentions-legales', name: 'mentions_legales')]
+    public function mentions_legales(): Response
+    {
+        return $this->render('default/mentions-legales.html.twig');
+    }
+
+    #[Route('/politique-de-confidentialite', name: 'politique_de_confidentialite')]
+    public function politique_de_confidentialite(): Response
+    {
+        return $this->render('default/politique-de-confidentialite.html.twig');
+    }
 }
