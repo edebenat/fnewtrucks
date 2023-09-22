@@ -17,7 +17,13 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/jass')]
 class JassController extends AbstractController
 {
-    #[Route('/', name: 'app_jass_index', methods: ['GET'])]
+    #[Route('/', name: 'app_jass_home', methods: ['GET'])]
+    public function home(): Response
+    {
+        return $this->render('jass/home.html.twig');
+    }
+
+    #[Route('/vehicules', name: 'app_jass_index', methods: ['GET'])]
     public function index(VehicleRepository $vehicleRepository): Response
     {
         return $this->render('jass/index.html.twig', [
@@ -25,7 +31,7 @@ class JassController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_jass_new', methods: ['GET', 'POST'])]
+    #[Route('/vehicules/new', name: 'app_jass_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $vehicle = new Vehicle();
@@ -55,7 +61,7 @@ class JassController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_jass_show', methods: ['GET'])]
+    #[Route('/vehicules/{id}', name: 'app_jass_show', methods: ['GET'])]
     public function show(Vehicle $vehicle): Response
     {
         return $this->render('jass/show.html.twig', [
@@ -63,7 +69,7 @@ class JassController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_jass_edit', methods: ['GET', 'POST'])]
+    #[Route('/vehicules/{id}/edit', name: 'app_jass_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Vehicle $vehicle, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(VehicleType::class, $vehicle);
@@ -81,7 +87,7 @@ class JassController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_jass_delete', methods: ['POST'])]
+    #[Route('/vehicules/{id}', name: 'app_jass_delete', methods: ['POST'])]
     public function delete(Request $request, Vehicle $vehicle, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$vehicle->getId(), $request->request->get('_token'))) {
@@ -92,7 +98,7 @@ class JassController extends AbstractController
         return $this->redirectToRoute('app_jass_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    #[Route('/{id}/activate', name: 'app_jass_activate')]
+    #[Route('/vehicules/{id}/activate', name: 'app_jass_activate')]
     public function activate(Vehicle $vehicle, EntityManagerInterface $entityManager): Response
     {
         if ($vehicle->isActive()) {
@@ -107,7 +113,7 @@ class JassController extends AbstractController
         return $this->redirectToRoute('app_jass_index');
     }
 
-    #[Route('/ajax/new_picture', name: 'new_picture', options: ['expose' => true])]
+    #[Route('/vehicules/ajax/new_picture', name: 'new_picture', options: ['expose' => true])]
     public function new_picture(Request $request, EntityManagerInterface $entityManager, VehicleRepository $vehicleRepository): JsonResponse
     {
         $image = $request->files->get('file');
@@ -147,7 +153,7 @@ class JassController extends AbstractController
         ]);
     }
 
-    #[Route('/ajax/del_picture', name: 'del_picture', options: ['expose' => true])]
+    #[Route('/vehicules/ajax/del_picture', name: 'del_picture', options: ['expose' => true])]
     public function del_picture(Request $request, VehicleRepository $vehicleRepository, EntityManagerInterface $entityManager): JsonResponse
     {
         $position = $request->request->get('position');

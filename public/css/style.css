@@ -220,9 +220,6 @@ footer{
         height: 60px;
         background: linear-gradient(175deg, #ED6227 0, #ED6227 47%, white 47%, white 52%, #1d315a 52%, #1d315a 100%);
     }
-    .fnt-av-commerce{
-        gap: 1em;
-    }
     .fnt-col1, .fnt-col2{
         padding: 16px;
     }
@@ -537,6 +534,11 @@ footer{
 }
 .homeVehiclesCard{
     background-color: white;
+    transition: all 0.3s;
+}
+.homeVehiclesCard:hover{
+    scale: 1.01;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 .homeVehiclesInfos{
     padding: 0 1em 1em 1em;
@@ -853,4 +855,311 @@ footer{
     width: 250px;
     transform: translate(50%, 50%);
     z-index: 1000;
+}
+.jass-footer{
+    padding: 0.5em 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-style: italic;
+}
+.jass-home{
+    width: 100%;
+    height: 100vh;
+    background-color: #001f22;
+}
+.jass-home-content{
+    width: 100%;
+    height: calc(100% - 2em);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+#jass-logo{
+    filter: blur(100px);
+    transition: all 1s;
+}
+#jass-form-login{
+    height: 0;
+    opacity: 0;
+    transition: all .5s;
+}
+#jass-form-login input{
+    height: 100%;
+}
+.jass-btn-outline{
+    color: whitesmoke;
+    background-color: transparent;
+    border: 2px solid #38AECC;
+    font-family: "itc-avant-garde-gothic-pro";
+    padding: 0.5em;
+}
+.jass-btn-outline:hover{
+    color: black;
+    background-color: #38AECC;
+}
+
+/* ----------------------- */
+
+.slick-dots li{
+    width: 10px !important;
+    height: 10px !important;
+}
+.slick-dots li button{
+    width: 10px !important;
+    height: 10px !important;
+    border: 1px solid #ED6227 !important;
+}
+.slick-dots li button:before{
+    content: '' !important;
+    width: 10px !important;
+    height: 10px !important;
+    background-color: #ED6227 !important;
+    border: 1px solid #ED6227 !important;
+    opacity: 0 !important;
+}
+.slick-dots li.slick-active button:before{
+    opacity: 1 !important;
+}
+.slick-prev:before, .slick-next:before{
+    color: #ED6227 !important;
+}
+.headerMenuOpen{
+    display: none;
+}
+
+/* MENU BURGER */
+#nav-icon {
+    width: 60px;
+    height: 45px;
+    position: relative;
+    margin: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    transform: scale(0.5);
+}
+#nav-icon span {
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 100%;
+    background: white;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+#nav-icon span:nth-child(1) {
+    top: 0px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+}
+#nav-icon span:nth-child(2) {
+    top: 18px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+}
+#nav-icon span:nth-child(3) {
+    top: 36px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+}
+#nav-icon.open span:nth-child(1) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -3px;
+    left: 8px;
+}
+#nav-icon.open span:nth-child(2) {
+    width: 0%;
+    opacity: 0;
+}
+#nav-icon.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 39px;
+    left: 8px;
+}
+/* ---------------- */
+
+/* -------------------- */
+
+@media screen and (max-width: 600px) {
+    .headerMenu{
+        position: fixed;
+        background-color: black;
+        width: 100vw;
+        height: 100%;
+        top: 75px;
+        left: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        padding-top: 4em;
+        transition: all 0.3s;
+    }
+    .headerMenu.open{
+        left: 0;
+    }
+    .headerMenu ul{
+        flex-direction: column;
+        padding: 0;
+    }
+    .headerMenuOpen{
+        display: block;
+    }
+    .headerLogo{
+        padding-left: 1em;
+    }
+    .headerLogo a img{
+        height: 60px;
+    }
+    .homeTop{
+        height: calc(100vh - 80px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .homeTop img{
+        max-width: unset;
+        max-height: 100%;
+    }
+    .homeTopWrapper{
+        margin-top: 1em;
+        padding: 0 1em;
+        width: unset;
+    }
+    .homeTopWrapper h1{
+        font-size: 2.2em;
+    }
+    .homeTopButtons{
+        flex-direction: column;
+        gap: 1em;
+    }
+    .homeTopButtons a{
+        width: fit-content;
+    }
+    .fnt-categories{
+        flex-direction: column;
+        gap: 2em;
+        padding: 0 1em;
+    }
+    .fnt-cat-section p{
+        margin-bottom: 3em;
+    }
+    .homeVehicles{
+        padding: 2em 1em 4em;
+    }
+    .homeVehiclesVehicles{
+        grid-template-columns: 1fr;
+    }
+    .fnt-av-commerce{
+        flex-direction: column;
+    }
+    .vehiclesTop{
+        height: calc(100vh - 80px);
+        display: flex;
+        justify-content: end;
+    }
+    .vehiclesTop img{
+        max-width: unset;
+        height: 100%;
+        transform: translateX(30%);
+    }
+    .vehiclesTopOverlay{
+        background-color: #00000050;
+    }
+    .vehiclesTopWrapper{
+        width: unset;
+        padding: 0 1em;
+    }
+    .vehiclesTopWrapper h1{
+        font-size: 2.2em;
+    }
+    br.lg{
+        display: none;
+    }
+    .vehiclesVehiclesNew{
+        flex-direction: column;
+        margin: 0 1em 1em;
+    }
+    #newSwiper{
+        width: 100%;
+    }
+    .vehiclesVehiclesnewInfos span{
+        right: 0;
+    }
+    .vehiclesVehiclesCards{
+        grid-template-columns: 1fr;
+        gap: 1em;
+        max-width: 100%;
+        margin: 0 1em;
+    }
+    .vehiclesVehiclesCard{
+        max-width: calc(100vw - 2em);
+    }
+    .vehiclesVehiclesnewInfos{
+        padding: 1em 1.4em;
+    }
+    .contactTop{
+        max-height: calc(100vh - 80px);
+        display: flex;
+        justify-content: center;
+    }
+    .contactTop img{
+        max-width: unset;
+    }
+    .contactTopOverlay{
+        margin: 2em 1em;
+        width: unset;
+    }
+    .contactTopWrapper h1{
+        font-size: 2.2em;
+    }
+    .contactBody{
+        flex-direction: column;
+    }
+    .contactContacts{
+        width: unset;
+    }
+    .contactBg1, .contactBg2{
+        padding: 0 1em;
+    }
+    .contactCommerce{
+        flex-direction: column;
+    }
+    #map{
+        height: 50vh;
+        width: 100%;
+    }
+    #contactFrance{
+        display: none;
+    }
 }

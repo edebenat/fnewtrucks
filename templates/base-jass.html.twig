@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>F NEW TRUCKS - Administration</title>
+        <link rel="icon" href={{asset("images/favicon.ico")}}>
+        <link rel="stylesheet" href="https://use.typekit.net/orh8yhe.css">
+        <link rel="stylesheet" href={{asset("css/style.css")}}>
+        {% block stylesheets %}
+        {% endblock %}
+
+        <script src={{ asset('bundles/jquery/jquery-3.7.1.min.js') }}></script>
+        {% block javascripts %}
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+            <div class="headerWrapper">
+                <div class="headerLogo">
+                    <a href={{ path('home') }}>
+                        <img src={{ asset("images/logo-fnewtrucks.png") }} alt="Logo F New Trucks">
+                    </a>
+                </div>
+                <div class="headerMenu">
+                    <ul>
+                        <li>
+                            <a href={{ path('app_jass_index') }}>Véhicules</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        {% block body %}{% endblock %}
+        <footer class="jass-footer">
+            <span>Jass-cms 0.2 © deerWeb</span>
+        </footer>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    </body>
+</html>

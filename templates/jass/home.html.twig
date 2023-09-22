@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="robots" content="noindex, nofollow">
+
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>F NEW TRUCKS - Administration</title>
+        <link rel="icon" href={{asset("images/favicon.ico")}}>
+        <link rel="stylesheet" href="https://use.typekit.net/orh8yhe.css">
+        <link rel="stylesheet" href={{asset("css/style.css")}}>
+        {% block stylesheets %}
+        {% endblock %}
+
+        <script src={{ asset('bundles/jquery/jquery-3.7.1.min.js') }}></script>
+        {% block javascripts %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="jass-home">
+            <div class="jass-home-content">
+                <img src={{ asset('images/jass-logo.png') }} id="jass-logo">
+                <form id="jass-form-login">
+                    <a href="{{ path('app_jass_index') }}" class="btn jass-btn-outline mt-3">Se connecter</a>
+                </form>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#jass-logo").css("filter", "blur(0)");
+                setTimeout(function(){
+                    $("#jass-form-login").css("height", "2em");
+                    $("#jass-form-login").css("opacity", "1");
+                }, 2000);
+            });
+        </script>
+    </body>
+</html>

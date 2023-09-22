@@ -49,11 +49,26 @@
                         </li>
                     </ul>
                 </div>
+                <div class="headerMenuOpen">
+                    <div id="nav-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
             </div>
         </header>
         {% block body %}{% endblock %}
         <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+        <script>
+            $(document).ready(function(){
+                $('#nav-icon').click(function(){
+                    $('#nav-icon').toggleClass('open');
+                    $('.headerMenu').toggleClass('open');
+                });
+            });
+        </script>
         <footer>
             <div class="footerWrapper">
                 <div class="fb-page" data-href="https://www.facebook.com/fnewtrucks" data-tabs="" data-width="500" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/fnewtrucks" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/fnewtrucks">F New Trucks</a></blockquote></div>
