@@ -43,7 +43,7 @@
     flex-direction: column;
     position: relative;
 }
-.jass-vehicles-images.inactive{
+.jass-vehicles-imgs.inactive{
     filter: opacity(0.5);
 }
 .jass-vehicles-infos{
