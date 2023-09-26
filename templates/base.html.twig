@@ -71,14 +71,24 @@
         </script>
         <footer>
             <div class="footerWrapper">
-                <div class="fb-page" data-href="https://www.facebook.com/fnewtrucks" data-tabs="" data-width="500" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/fnewtrucks" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/fnewtrucks">F New Trucks</a></blockquote></div>
-                <div class="fnt-footer">
-                    <img src={{asset("images/logo-f-new-trucks.jpg")}} alt="Logo F new Trucks" width="200">
-                    <a href="https://fordtrucks.com.tr/fr/">Ford Trucks</a>
-                    <a href={{ path('mentions_legales') }}>Mentions légales</a>
-                    <a href={{ path('politique_de_confidentialite') }}>Politique de confidentialité</a>
-                    <img src={{asset("images/FORD_TRUCKS_LOGO-02.png")}} alt="Logo Ford Trucks" width="55" class="fnt-logo-last">
+                <div class="footerLogo">
+                    <img src={{asset("images/logo-fnewtrucks.png")}} alt="Logo F new Trucks" height="40">
+                    <p>Concessionnaire Ford Trucks sur 8 départements du sud-ouest de la France.</p>
                 </div>
+                <div class="fnt-footer">
+                    <ul>
+                        <li><a href="https://fordtrucks.com.tr/fr/">Découvrir Ford Trucks</a></li>
+                        <li><a href={{ path('vehicules') }}>Véhicules en stock</a></li>
+                        {#
+                        <li><a href="#">Actualités</a></li>
+                        #}
+                        <li><a href={{ path('contact') }}>Contacts</a></li>
+                        <li><a href={{ path('mentions_legales') }}>Mentions légales</a></li>
+                        <li><a href={{ path('politique_de_confidentialite') }}>Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+                <div class="fb-page" data-href="https://www.facebook.com/fnewtrucks" data-tabs="" data-width="500" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/fnewtrucks" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/fnewtrucks">F New Trucks</a></blockquote></div>
+                <img src={{asset("images/FORD_TRUCKS_LOGO-02.png")}} alt="Logo Ford Trucks" width="60" class="fnt-logo-last">
             </div>
         </footer>
     </body>

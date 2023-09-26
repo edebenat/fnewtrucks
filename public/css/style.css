@@ -180,24 +180,24 @@ body{
 .fnt-logo{
     width: 130px;
 }
-footer{
-    background-color: black;
-    padding: 30px;
-}
 .fnt-footer{
-    margin-top: 24px;
-    color: white;
-    font-size: 14px;
     display: flex;
-    align-items: baseline;
-    gap: 40px;
+    justify-content: center;
+}
+.fnt-footer ul{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 .fnt-footer a{
     color: white;
     text-decoration: none;
 }
 .fnt-logo-last{
-    margin-left: auto;
+    position: absolute;
+    top: -30px;
+    right: 0;
 }
 
 @media screen and (max-width: 1200px) {
@@ -301,7 +301,6 @@ header{
 }
 .headerMenu{
     align-self: end;
-    margin-bottom: 0.6em;
 }
 .headerMenu ul{
     list-style: none;
@@ -336,10 +335,27 @@ footer{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: black;
 }
 .footerWrapper{
     width: 100%;
     max-width: 1200px;
+    position: relative;
+    padding: 4em 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    font-weight: 100;
+    line-height: 1.2em;
+}
+.footerWrapper > div{
+    flex: 1;
+}
+.footerLogo{
+    color: white;
+}
+.fb-page{
+    align-self: center;
 }
 .homeTop{
     position: relative;
@@ -362,7 +378,7 @@ footer{
     margin-top: 10vh;
 }
 .homeTopWrapper h1{
-    color: #1d315a;
+    color: white;
     font-size: 2.6em;
     line-height: 1.2em;
     font-weight: bold;
@@ -413,6 +429,17 @@ footer{
     color: white;
 }
 .btnTransparent:hover img{
+    filter: brightness(0) invert(1);
+}
+.btnBlack{
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+}
+.btnBlack:hover{
+    background-color: transparent;
+}
+.btnBlack img{
     filter: brightness(0) invert(1);
 }
 .fnt-cat-section{
@@ -929,6 +956,10 @@ footer{
 .headerMenuOpen{
     display: none;
 }
+.headerLogo img{
+    height: 60px;
+}
+
 
 /* MENU BURGER */
 #nav-icon {
@@ -1036,9 +1067,6 @@ footer{
     }
     .headerLogo{
         padding-left: 1em;
-    }
-    .headerLogo a img{
-        height: 60px;
     }
     .homeTop{
         height: calc(100vh - 80px);
@@ -1161,6 +1189,12 @@ footer{
     }
     #contactFrance{
         display: none;
+    }
+    .footerWrapper{
+        flex-direction: column;
+    }
+    .fb-page{
+        align-self: normal;
     }
 }
 .annexes{
