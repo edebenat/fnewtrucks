@@ -2,12 +2,13 @@
 
 {% block title %}Véhicules{% endblock %}
 {% block stylesheets %}
-    <link rel="stylesheet" href={{asset("bundles/swiperjs/swiper-bundle.min.css")}}>
+    <link rel="stylesheet" href={{asset("bundles/slick/slick.css")}}>
+    <link rel="stylesheet" href={{asset("bundles/slick/slick-theme.css")}}>
     <link rel="stylesheet" href={{asset("css/jass.css")}}>
 {% endblock %}
 
 {% block javascripts %}
-    <script src={{ asset('bundles/swiperjs/swiper-bundle.min.js') }}></script>
+    <script src={{ asset('bundles/slick/slick.min.js') }}></script>
 {% endblock %}
 
 {% block body %}
@@ -26,18 +27,20 @@
                 {% endif %}
                 <div class="jass-vehicles-card">
                     <div class="jass-vehicles-images {{card_class}}">
-                        <div class="swiper">
-                            <div class="swiper-wrapper">
-                                {% for image in vehicle.images %}
-                                    <div class="swiper-slide">
-                                        <img src={{ image | imagine_filter('vehicle') }} alt="Véhicule Ford">
-                                    </div>
-                                {% endfor %}
-                                <div class="swiper-pagination"></div>
-                                <div class="swiper-button-prev"></div>
-                                <div class="swiper-button-next"></div>
+                        {% set i = 0 %}
+                        {% for image in vehicle.images %}
+                            {% if i == 0 %}
+                                <div class="swiper-slide">
+                                    <img src={{ image | imagine_filter('vehicle') }} alt="Véhicule Ford">
+                                </div>                                    
+                            {% endif %}
+                            {% set i = i + 1 %}
+                        {% endfor %}
+                        {% if i > 1 %}
+                            <div class="jass-img-plus">
+                                +{{ i - 1 }}
                             </div>
-                        </div>
+                        {% endif %}
                     </div>
                     <div class="jass-vehicles-infos {{card_class}}">
                         <h2>{{ vehicle.model }}</h2>
@@ -69,23 +72,13 @@
         </div>
     </div>
 </section>
-
+{#
 <script>
-    const swiper = new Swiper('.swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
-
-        // If we need pagination
-        pagination: {
-            el: '.swiper-pagination',
-        },
-
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+    $(document).ready(function(){
+        $('.slick').slick({
+            dots: true
+        });
     });
 </script>
+#}
 {% endblock %}
