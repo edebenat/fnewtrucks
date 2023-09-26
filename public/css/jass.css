@@ -128,6 +128,10 @@
 }
 .jass-vehicles-images{
     position: relative;
+    flex: 1;
+}
+.jass-vehicles-imgs{
+    position: relative;
 }
 .jass-img-plus{
     position: absolute;
