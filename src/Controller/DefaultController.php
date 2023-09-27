@@ -2,9 +2,13 @@
 
 namespace App\Controller;
 
+use App\Form\ContactType;
 use App\Repository\VehicleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
@@ -20,14 +24,38 @@ class DefaultController extends AbstractController
     }
 
     #[Route('/vehicules', name: 'vehicules')]
-    public function vehicules(VehicleRepository $vehicleRepository): Response
+    public function vehicules(VehicleRepository $vehicleRepository, Request $request, MailerInterface $mailer): Response
     {
         $newVehicle = $vehicleRepository->findOneBy(['active' => true], ['createdAt' => 'DESC']);
         $vehicles = $vehicleRepository->findBy(['active' => true], ['createdAt' => 'DESC'], null, 1);
 
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $firstname = $form->get('firstname')->getData();
+            $lastname = $form->get('lastname')->getData();
+            $email = $form->get('email')->getData();
+            $tel = $form->get('tel')->getData();
+            $vehicle = $vehicleRepository->find($form->get('vehicle')->getData());
+
+            $title = $vehicle->getModel().' '.$vehicle->getState();
+            $mail =(new Email())
+                ->from('ne-pas-repondre@fnewtrucks.fr')
+                ->to('contact@deerweb.fr')
+                ->subject('F New Trucks : Quelqu\'un est interressé par un véhicule')
+                ->html("<h1>$title</h1><p>Nom : $firstname $lastname<br>Email : $email<br>Téléphone : $tel</p>")
+            ;
+    
+            $mailer->send($mail);
+    
+            return $this->render('default/confirm-email.html.twig');
+        }
+
         return $this->render('default/vehicules.html.twig', [
             'newVehicle' => $newVehicle,
             'vehicles' => $vehicles,
+            'form' => $form->createView()
         ]);
     }
 
@@ -47,5 +75,11 @@ class DefaultController extends AbstractController
     public function politique_de_confidentialite(): Response
     {
         return $this->render('default/politique-de-confidentialite.html.twig');
+    }
+
+    #[Route('/sendEmail', name: 'sendEmail')]
+    public function sendEmail(): Response
+    {
+        return $this->render('default/confirm-email.html.twig');
     }
 }

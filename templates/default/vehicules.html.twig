@@ -64,6 +64,7 @@
                         <p class="vehiclesVehiclesDescription">{{ vehicle.type }} | {{ vehicle.gears }} | {{ vehicle.enginePower }} | {{ vehicle.state }}{% if vehicle.mileageFromOdometer is not null %} | {{ vehicle.mileageFromOdometer }}{% endif %}</p>
                         <p class="vehiclesVehiclesEquipments">Équipements :<br>{{ vehicle.equipments }}</p>
                         <p class="vehiclesVehiclesGuarantee">{{ vehicle.guarantee }}</p>
+                        <button class="btn btnOrange" onclick="openForm({{vehicle.id}})">Je suis intéressé</button>
                     </div>
                 </div>
             {% endfor %}
@@ -138,6 +139,11 @@
         </div>
     {% endfor %}
 {% endfor %}
+<div class="vehiclesForm">
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+</div>
 <script>
     $(document).ready(function(){
         $('.slick').slick({
@@ -152,6 +158,9 @@
     function openImg(id, key){
         div = '#img' + id + '-' + key;
         $(div).addClass('show');
+    }
+    function openForm(id){
+        $('#contact_vehicle').val(id);
     }
 </script>
 
