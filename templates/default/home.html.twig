@@ -51,7 +51,7 @@
         <p class="homeVehiclesSubtitle">Découvrez nos poids lourds disponibles de suite.</p>
         <div class="homeVehiclesVehicles">
             {% for vehicle in vehicles %}
-                <div class="homeVehiclesCard">
+                <a href={{ path('vehicules') }} class="homeVehiclesCard">
                     <div class="homeVehiclesImage">
                         {% if vehicle.images[0] is defined %}
                             <img src={{ vehicle.images[0] | imagine_filter('homeVehicle') }} alt="Véhicule Ford">                            
@@ -60,9 +60,12 @@
                     <div class="homeVehiclesInfos">
                         <h2>{{ vehicle.model }}</h2>
                         <p>{{ vehicle.type }} | {{ vehicle.gears }} | {{ vehicle.enginePower }}<br>{{ vehicle.state }}{% if vehicle.mileageFromOdometer is not null %} | {{ vehicle.mileageFromOdometer }}{% endif %}</p>
-                        <a href={{ path('vehicules') }}><span>En savoir plus</span><img src={{ asset('images/orange-arrow.png') }}></a>
+                        <div class="homeVehiclesLink">
+                            <span>En savoir plus</span>
+                            <img src={{ asset('images/orange-arrow.png') }}>
+                        </div>
                     </div>
-                </div>
+                </a>
             {% endfor %}
         </div>
         <div class="homeVehiclesButton">

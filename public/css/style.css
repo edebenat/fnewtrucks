@@ -89,7 +89,7 @@ body{
     display: flex;
     color: white;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
 }
 .fnt-col1{
     flex: 1;
@@ -176,6 +176,7 @@ body{
     font-size: 18px;
     line-height: 26px;
     margin-top: 7px;
+    letter-spacing: 0.4px;
 }
 .fnt-logo{
     width: 130px;
@@ -189,6 +190,7 @@ body{
     display: flex;
     flex-direction: column;
     gap: 5px;
+    letter-spacing: 0.4px;
 }
 .fnt-footer a{
     color: white;
@@ -201,7 +203,7 @@ body{
     z-index: 1000;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1400px) {
     body{
         overflow-x: hidden;
     }
@@ -232,7 +234,7 @@ body{
         gap: 16px;
     }
 }
-@media screen and (min-width: 600px) and (max-width: 1200px) {
+@media screen and (min-width: 600px) and (max-width: 1400px) {
     #background{
         top: 0;
         transform: unset;
@@ -293,7 +295,7 @@ header{
 }
 .headerWrapper{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     display: flex;
     flex-direction: row;
     gap: 2em;
@@ -340,7 +342,7 @@ footer{
 }
 .footerWrapper{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     position: relative;
     padding: 4em 0;
     display: flex;
@@ -355,6 +357,7 @@ footer{
 .footerLogo{
     color: white;
 }
+.footerLogo p, 
 .fb-page{
     align-self: center;
 }
@@ -373,14 +376,14 @@ footer{
 }
 .homeTopWrapper{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     display: flex;
     flex-direction: column;
     margin-top: 10vh;
 }
 .homeTopWrapper h1{
     color: white;
-    font-size: 2.6em;
+    font-size: 3em;
     line-height: 1.2em;
     font-weight: bold;
 }
@@ -397,10 +400,10 @@ footer{
     gap: 0.5em;
     text-decoration: none;
     border-radius: 5px;
-    padding: 0.5em 0.3em 0.5em 0.5em;
     font-weight: 100;
     transition: all 0.3s;
     padding: 0.5em 0.3em 0.5em 0.5em;
+    letter-spacing: 0.6px;
 }
 .btn span{
     margin-top: 2px;
@@ -451,11 +454,11 @@ footer{
 }
 .fnt-cat-wrapper{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
 }
 .fnt-cat-section h2{
     text-align: center;
-    font-size: 32px;
+    font-size: 2.4em;
     color: #1d315a;
     margin-bottom: 0;
 }
@@ -504,10 +507,10 @@ footer{
 }
 .homeVehiclesWrapper{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
 }
 .homeVehiclesTitle{
-    font-size: 32px;
+    font-size: 2.4em;
     color: #1d315a;
     margin-bottom: 0;
 }
@@ -563,6 +566,7 @@ footer{
 .homeVehiclesCard{
     background-color: white;
     transition: all 0.3s;
+    text-decoration: none;
 }
 .homeVehiclesCard:hover{
     scale: 1.01;
@@ -571,7 +575,7 @@ footer{
 .homeVehiclesInfos{
     padding: 0 1em 1em 1em;
 }
-.homeVehiclesInfos a{
+.homeVehiclesLink{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -583,6 +587,7 @@ footer{
 }
 .homeVehiclesInfos p{
     line-height: 1.4em;
+    letter-spacing: 0.4px;
 }
 
 /* ------------------------- */
@@ -605,7 +610,7 @@ footer{
 }
 .vehiclesTopWrapper{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -639,7 +644,7 @@ footer{
 }
 .vehiclesVehiclesWrapper{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
 }
 .vehiclesVehiclesCards{
     display: grid;
@@ -653,6 +658,16 @@ footer{
     position: relative;
     max-width: calc(400px - (4em / 3));
     border: 1px solid #1d315a;
+    height: fit-content;
+}
+.vehiclesVehiclesCard:nth-child(3n+1){
+    justify-self: start;
+}
+.vehiclesVehiclesCard:nth-child(3n+2){
+    justify-self: center;
+}
+.vehiclesVehiclesCard:nth-child(3n+3){
+    justify-self: end;
 }
 .vehiclesVehiclesInfos{
     padding: 1em 1.4em;
@@ -665,6 +680,7 @@ footer{
 }
 .vehiclesVehiclesInfos p{
     line-height: 1.4em;
+    letter-spacing: 0.4px;
 }
 .vehiclesVehiclesDescription{
     margin: 0;
@@ -689,6 +705,9 @@ footer{
     align-items: center;
     position: relative;
     margin-bottom: 4em;
+}
+.vehiclesVehiclesNew p{
+    letter-spacing: 0.4px;
 }
 .vehiclesVehiclesnewInfos{
     padding: 2em;
@@ -731,7 +750,7 @@ footer{
 }
 .contactTopWrapper{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -773,7 +792,7 @@ footer{
 .contactCol1, .contactCol2{
     flex: 1;
     padding: 3% 3% 3% 0;
-    max-width: calc(600px - 3%);
+    max-width: calc(700px - 3%);
     position: relative;
 }
 .contactBg2{
@@ -839,6 +858,9 @@ footer{
     display: flex;
     justify-content: space-between;
 }
+.contactCommerce > div{
+    flex: 1;
+}
 .contactCommerce a{
     color: white;
     text-decoration: none;
@@ -865,6 +887,13 @@ footer{
     padding: 2px;
     border: 1px solid #ED6227;
 }
+.orange-icon::after{
+    content: '';
+    background-color: #ED6227;
+    display: block;
+    transition: all 0.3s;
+    animation: 0.8s ease-in infinite alternate mapPoint;
+}
 .slick-prev{
     left: 10px !important;
     z-index: 1;
@@ -881,7 +910,7 @@ footer{
     bottom: 0;
     right: 0;
     width: 250px;
-    transform: translate(50%, 50%);
+    transform: translate(44%, 50%);
     z-index: 1000;
 }
 .jass-footer{
@@ -1197,6 +1226,10 @@ footer{
     .fb-page{
         align-self: normal;
     }
+    .vehiclesImageBig img{
+        max-width: 100%;
+        max-height: 70%;
+    }    
 }
 .annexes{
     display: flex;
@@ -1204,6 +1237,53 @@ footer{
     align-items: center;
 }
 .annexesWrapper{
-    max-width: 1200px;
+    max-width: 1400px;
     padding: 2em 0;
+}
+.vehiclesImageBig{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999999;
+    background-color: #000000CC;
+}
+.vehiclesCloseImg{
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    cursor: pointer;
+}
+.vehiclesImageBig img{
+    max-width: 60%;
+    max-height: 70%;
+}
+.vehiclesImageBig.show{
+    display: flex;
+}
+.swiper-slide{
+    position: relative;
+}
+.vehiclesOpenImg{
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    cursor: pointer;
+}
+
+@keyframes mapPoint {
+    from {
+        width: 12px;
+        height: 12px;
+        transform: translate(0px, 0px);
+    }
+    to {
+        width: 16px;
+        height: 16px;
+        transform: translate(-2px, -2px);
+    }
 }

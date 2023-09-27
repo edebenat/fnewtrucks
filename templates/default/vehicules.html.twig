@@ -3,13 +3,11 @@
 {% block title %}F New Trucks - Nos véhicules en stock{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href={{asset("bundles/swiperjs/swiper-bundle.min.css")}}>
     <link rel="stylesheet" href={{asset("bundles/slick/slick.css")}}>
     <link rel="stylesheet" href={{asset("bundles/slick/slick-theme.css")}}>
 {% endblock %}
 
 {% block javascripts %}
-    <script src={{ asset('bundles/swiperjs/swiper-bundle.min.js') }}></script>
     <script src={{ asset('bundles/slick/slick.min.js') }}></script>
 {% endblock %}
 
@@ -30,22 +28,11 @@
 <section class="vehiclesVehicles">
     <div class="vehiclesVehiclesWrapper">
         <div class="vehiclesVehiclesNew">
-{#            <div class="swiper" id="newSwiper">
-                <div class="swiper-wrapper">
-                    {% for image in newVehicle.images %}
-                    <div class="swiper-slide">
-                        <img src={{ asset(image) }}>
-                    </div>                
-                    {% endfor %}
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                </div>
-            </div>
-#}            <div class="slick" id="newSwiper">
-                {% for image in newVehicle.images %}
+            <div class="slick" id="newSwiper">
+                {% for key, image in newVehicle.images %}
                 <div class="swiper-slide">
-                    <img src={{ asset(image) }}>
+                    <img src={{ asset(image) }} alt="Véhicule Ford" onclick="openImg({{newVehicle.id}}, {{key}})">
+                    <img src={{ asset('images/agrandir-la-fenetre.png') }} class="vehiclesOpenImg" onclick="openImg({{newVehicle.id}}, {{key}})">
                 </div>                
                 {% endfor %}
             </div>
@@ -63,24 +50,11 @@
             {% for vehicle in vehicles %}
                 <div class="vehiclesVehiclesCard">
                     <div class="vehiclesVehiclesImages">
-{#
-                        <div class="swiper">
-                            <div class="swiper-wrapper">
-                                {% for image in vehicle.images %}
-                                    <div class="swiper-slide">
-                                        <img src={{ image | imagine_filter('vehicle') }} alt="Véhicule Ford">
-                                    </div>
-                                {% endfor %}
-                                <div class="swiper-pagination"></div>
-                                <div class="swiper-button-prev"></div>
-                                <div class="swiper-button-next"></div>
-                            </div>
-                        </div>
-#}
                         <div class="slick">
-                            {% for image in vehicle.images %}
+                            {% for key, image in vehicle.images %}
                                 <div class="swiper-slide">
                                     <img src={{ image | imagine_filter('vehicle') }} alt="Véhicule Ford">
+                                    <img src={{ asset('images/agrandir-la-fenetre.png') }} class="vehiclesOpenImg" onclick="openImg({{vehicle.id}}, {{key}})">
                                 </div>
                             {% endfor %}
                         </div>
@@ -150,6 +124,20 @@
         </div>
     </div>
 </section>
+{% for key, image in newVehicle.images %}
+    <div class="vehiclesImageBig" id="img{{newVehicle.id}}-{{key}}" onclick="closeImg($(this))">
+        <img src={{ asset(image) }}>
+        <img src={{ asset('images/cancel_white.png') }} class="vehiclesCloseImg">
+    </div>
+{% endfor %}
+{% for vehicle in vehicles %}
+    {% for key, image in vehicle.images %}
+        <div class="vehiclesImageBig" id="img{{vehicle.id}}-{{key}}" onclick="closeImg($(this))">
+            <img src={{ asset(image) }}>
+            <img src={{ asset('images/cancel_white.png') }} class="vehiclesCloseImg">
+        </div>
+    {% endfor %}
+{% endfor %}
 <script>
     $(document).ready(function(){
         $('.slick').slick({
@@ -158,25 +146,13 @@
     });
 </script>
 <script>
-    const swiper = new Swiper('.swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
-        autoHeight: true,
-
-        // If we need pagination
-        pagination: {
-            el: '.swiper-pagination',
-        },
-
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-
-
+    function closeImg(div){
+        div.removeClass('show');
+    }
+    function openImg(id, key){
+        div = '#img' + id + '-' + key;
+        $(div).addClass('show');
+    }
 </script>
 
 {% endblock %}

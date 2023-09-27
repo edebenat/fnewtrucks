@@ -86,21 +86,29 @@
 
 <script>
     $(document).ready(function(){
-        var map = L.map('map').setView([46.0383664, 0.1579431,8.75], 8);
+        var map = L.map('map', {
+            attributionControl: false
+        }).setView([46.0383664, 0.1579431,8.75], 8);
         L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/about" target="_blank">OpenStreetMap</a>'
+        }).addTo(map);
+
+        L.control.attribution({
+            position: 'bottomleft'
         }).addTo(map);
 
         var orangeIcon = L.divIcon({className: 'orange-icon'});
 
         var jaulin = L.marker([46.4214743, -0.209751], {icon: orangeIcon})
             .addTo(map)
-            .bindPopup("<b>Garage Jaulin</b><br>11 avenue Charles de Gaulle<br>79400 Saint-Maixent-l’École");
+            .bindPopup("<b>Garage Jaulin</b><br>11 avenue Charles de Gaulle<br>79400 Saint-Maixent-l’École", {closeOnClick: false, autoClose: false})
+            .openPopup();
 
         var ceapl = L.marker([45.8496109, 1.1622291], {icon: orangeIcon})
             .addTo(map)
-            .bindPopup("<b>Garage C.E.A.P.L.</b><br>10-12 route du Verdoyer<br>87430 Verneuil-sur-Vienne");
+            .bindPopup("<b>Garage C.E.A.P.L.</b><br>10-12 route du Verdoyer<br>87430 Verneuil-sur-Vienne", {closeOnClick: false, autoClose: false})
+            .openPopup();
     });
 </script>
 
