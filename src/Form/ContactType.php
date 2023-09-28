@@ -29,9 +29,6 @@ class ContactType extends AbstractType
                 'label' => 'Téléphone'
             ])
             ->add('vehicle', HiddenType::class)
-            ->add('submit', SubmitType::class, [
-                'label' => 'Envoyer'
-            ])
         ;
     }
 

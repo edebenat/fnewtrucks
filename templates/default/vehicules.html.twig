@@ -42,8 +42,13 @@
                 <hr>
                 <p class="vehiclesVehiclesEquipments">Équipements :</p>
                 <p class="vehiclesVehiclesEquipments">{{ newVehicle.equipments }}</p>
-                <p class="vehiclesVehiclesGuarantee">{{ newVehicle.guarantee }}</p>
-                <span>Nouveauté</span>
+                {% if newVehicle.guarantee is not empty %}
+                    <p class="vehiclesVehiclesGuarantee">{{ newVehicle.guarantee }}</p>
+                {% endif %}
+                <div>
+                    <div class="btn btnOrange" onclick="openForm({{newVehicle.id}})"><span>Je suis intéressé</span><img src={{ asset('images/orange-arrow.png') }}></div>
+                </div>
+                <span class="vehiclesNew">Nouveauté</span>
             </div>
         </div>
         <div class="vehiclesVehiclesCards">
@@ -63,8 +68,12 @@
                         <h2>{{ vehicle.model }}</h2>
                         <p class="vehiclesVehiclesDescription">{{ vehicle.type }} | {{ vehicle.gears }} | {{ vehicle.enginePower }} | {{ vehicle.state }}{% if vehicle.mileageFromOdometer is not null %} | {{ vehicle.mileageFromOdometer }}{% endif %}</p>
                         <p class="vehiclesVehiclesEquipments">Équipements :<br>{{ vehicle.equipments }}</p>
-                        <p class="vehiclesVehiclesGuarantee">{{ vehicle.guarantee }}</p>
-                        <button class="btn btnOrange" onclick="openForm({{vehicle.id}})">Je suis intéressé</button>
+                        {% if vehicle.guarantee is not empty %}
+                            <p class="vehiclesVehiclesGuarantee">{{ vehicle.guarantee }}</p>                            
+                        {% endif %}
+                        <div>
+                            <div class="btn btnOrange" onclick="openForm({{vehicle.id}})"><span>Je suis intéressé</span><img src={{ asset('images/orange-arrow.png') }}></div>
+                        </div>
                     </div>
                 </div>
             {% endfor %}
@@ -140,8 +149,19 @@
     {% endfor %}
 {% endfor %}
 <div class="vehiclesForm" id="vehiclesForm">
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
+    {{ form_start(form, {'attr': {'id': 'contactForm'}}) }}
+        <h2>Nous contacter</h2>
+        {{ form_row(form.firstname) }}
+        {{ form_row(form.lastname) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.tel) }}
+        <div id="contact_submit">
+            <div class="btn btnOrange" onclick="submitForm();"><span>Envoyer</span><img src={{ asset('images/orange-arrow.png') }}></div>
+        </div>
+        <div id="contact_cancel">
+            <div class="btn btnTransparent"><span>Annuler</span><img src={{ asset('images/orange-arrow.png') }}></div>
+        </div>
+        <div id="vehiclesFormError">Vous devez remplir tous les champs</div>
     {{ form_end(form) }}
 </div>
 <script>
@@ -162,6 +182,29 @@
     function openForm(id){
         $('#contact_vehicle').val(id);
         $('#vehiclesForm').addClass('show');
+    }
+    $('#vehiclesForm').click(function(){
+        clearForm();
+    }).children().click(function(e){
+        return false;
+    });
+    $('#contact_cancel').click(function(){
+        clearForm();
+    });
+    function clearForm(){
+        $('#vehiclesForm').removeClass('show');
+        $('#vehiclesForm input').val('');
+    }
+    function submitForm(){
+        if ($('#contact_firstname').val() != '' && $('#contact_lastname').val() != '' && $('#contact_email').val() != '' && $('#contact_tel').val() != ''){
+            $('#contactForm').submit();
+        }
+        else{
+            $('#vehiclesFormError').addClass('show');
+            setTimeout(function(){
+                $('#vehiclesFormError').removeClass('show');
+            }, 3000);
+        }
     }
 </script>
 

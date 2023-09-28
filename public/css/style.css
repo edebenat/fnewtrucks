@@ -404,6 +404,8 @@ footer{
     transition: all 0.3s;
     padding: 0.5em 0.3em 0.5em 0.5em;
     letter-spacing: 0.6px;
+    width: fit-content;
+    cursor: pointer;
 }
 .btn span{
     margin-top: 2px;
@@ -709,12 +711,19 @@ footer{
 .vehiclesVehiclesNew p{
     letter-spacing: 0.4px;
     line-height: 1.4em;
+    margin: 0;
+}
+.vehiclesVehiclesNew h2{
+    margin: 0;
 }
 .vehiclesVehiclesnewInfos{
     padding: 2em;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
-.vehiclesVehiclesnewInfos span{
+.vehiclesNew{
     position: absolute;
     top: 0;
     right: 2em;
@@ -726,8 +735,9 @@ footer{
     font-size: 1.2em;
 }
 .vehiclesVehiclesnewInfos hr{
-    margin: 1.4em 0;
+    margin: 0;
     height: 1px;
+    width: 100%;
     background-color: #1d315a;
     border: none;    
 }
@@ -1290,17 +1300,60 @@ footer{
 .vehiclesForm.show{
     display: flex;
 }
-.vehiclesForm form{
+#contactForm{
     background-color: white;
-    padding: 4em;
+    padding: 3em 4em;
     border-radius: 5px;
-}
-#contact{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "a a"
+        "b c"
+        "d e"
+        "f f"
+        "g h";
     gap: 1em;
 }
-#contact > div{
+#contactForm input{
+    border: 2px solid #ED6227;
+    border-radius: 5px;
+    line-height: 1.8em;
+}
+#contactForm h2{
+    grid-area: a;
+    justify-self: center;
+    margin: 0;
+}
+#contact_firstname{
+    grid-area: b;
+}
+#contact_lastname{
+    grid-area: c;
+}
+#contact_email{
+    grid-area: d;
+}
+#contact_tel{
+    grid-area: e;
+}
+#vehiclesFormError{
+    grid-area: f;
+    justify-self: center;
+    opacity: 0;
+    transition: all 0.3s;
+    color: red;
+    font-weight: bold;
+}
+#vehiclesFormError.show{
+    opacity: 1;
+}
+#contact_submit{
+    grid-area: g;
+    justify-self: end;
+}
+#contact_cancel{
+    grid-area: h;
+}
+#contactForm > div{
     display: flex;
     flex-direction: column;
 }
