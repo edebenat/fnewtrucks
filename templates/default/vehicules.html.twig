@@ -139,7 +139,7 @@
         </div>
     {% endfor %}
 {% endfor %}
-<div class="vehiclesForm">
+<div class="vehiclesForm" id="vehiclesForm">
     {{ form_start(form) }}
         {{ form_widget(form) }}
     {{ form_end(form) }}
@@ -161,6 +161,7 @@
     }
     function openForm(id){
         $('#contact_vehicle').val(id);
+        $('#vehiclesForm').addClass('show');
     }
 </script>
 
