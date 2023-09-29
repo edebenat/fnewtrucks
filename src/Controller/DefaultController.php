@@ -42,7 +42,7 @@ class DefaultController extends AbstractController
             $title = $vehicle->getModel().' '.$vehicle->getState();
             $mail =(new Email())
                 ->from('ne-pas-repondre@fnewtrucks.fr')
-                ->to('contact@deerweb.fr')
+                ->to('marketing@fnewtrucks.fr')
                 ->subject('F New Trucks : Quelqu\'un est interressé par un véhicule')
                 ->html("<h1>$title</h1><p>Nom : $firstname $lastname<br>Email : $email<br>Téléphone : $tel</p>")
             ;
