@@ -87,21 +87,17 @@
                         <div class="vehicleImagesShow" id="images_{{vehicle.id}}">
                             {% for key, image in vehicle.images %}
                                 {% if key < 4 %}
-                                    <div class="image_{{key}}">
-                                        <img src={{ image | imagine_filter('vehicle') }} alt="Véhicule Ford">
-                                    </div>
+                                        <img src={{ image | imagine_filter('vehicle') }} alt="Véhicule Ford" class="image_{{key}}">
                                 {% endif %}
                             {% endfor %}
                         </div>
                     </div>
                     <div class="vehicleInfos">
-                        <div class="vehicleTitles">
-                            <div class="vehicleTitle">
-                                <h2>{{ vehicle.model }}</h2>
-                            </div>
-                            <div class="vehicleSubtitle">
-                                {{ vehicle.type }}
-                            </div>
+                        <div class="vehicleTitle">
+                            <h2>{{ vehicle.model }}</h2>
+                        </div>
+                        <div class="vehicleSubtitle">
+                            {{ vehicle.type }}
                         </div>
                         <div class="vehicleCarac">
                             <hr>

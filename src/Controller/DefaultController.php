@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Vehicle;
 use App\Form\ContactType;
 use App\Repository\VehicleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -58,6 +59,14 @@ class DefaultController extends AbstractController
             'vehicles' => $vehicles,
             'vehiclesList' => $vehiclesList,
             'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/vehicules/{id}', name: 'vehicule')]
+    public function vehicule(Vehicle $vehicle, Request $request, MailerInterface $mailer): Response
+    {
+        return $this->render('default/vehicle.html.twig', [
+            'vehicle' => $vehicle
         ]);
     }
 

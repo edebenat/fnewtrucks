@@ -719,7 +719,7 @@ footer{
 
 .vehiclesTop{
     position: relative;
-    max-height: calc(100vh - 100px);
+    max-height: calc(100vh - 80px);
     overflow: hidden;
 }
 .vehiclesTopImg{
@@ -1517,10 +1517,16 @@ footer{
     display: flex;
     flex-direction: row;
     flex: 1;
-    border: 1px solid;
+    border: 1px solid #1d315a;
+    color: #1d315a;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.vehicleCard:hover{
+    scale: 1.01;
 }
 .vehicleImage{
-    max-width: 45%;
+    max-width: 40%;
     height: 100%;
 }
 .vehicleImagesShow{
@@ -1531,6 +1537,18 @@ footer{
         "a a a"
         "a a a"
         "b c d";
+}
+.vehicleImagesShow > div{
+    aspect-ratio: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.vehicleImagesShow > div img{
+    max-width: unset;
+    height: 100%;
 }
 .vehicleImagesShow .image_0{
     grid-area: a;
@@ -1553,6 +1571,10 @@ footer{
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    gap: 1em;
+}
+.vehicleInfos .btn{
+    align-self: end;
 }
 .vehicleTitle h2{
     margin: 0;
