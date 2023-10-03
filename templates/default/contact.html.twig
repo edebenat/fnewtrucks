@@ -11,6 +11,7 @@
 {% endblock %}
 
 {% block body %}
+{#
 <section class="contactTop">
     <img src={{ asset('images/contact1.jpg') }} alt="Camions Ford">
     <div class="contactTopOverlay">
@@ -20,7 +21,7 @@
         </div>
     </div>
 </section>
-
+#}
 <section class="contactBody">
     <div class="contactContacts">
         <div class="contactDepartements">
@@ -99,16 +100,15 @@
         }).addTo(map);
 
         var orangeIcon = L.divIcon({className: 'orange-icon'});
+        var blueIcon = L.divIcon({className: 'blue-icon'});
 
         var jaulin = L.marker([46.4214743, -0.209751], {icon: orangeIcon})
             .addTo(map)
-            .bindPopup("<b>Garage Jaulin</b><br>11 avenue Charles de Gaulle<br>79400 Saint-Maixent-l’École", {closeOnClick: false, autoClose: false})
-            .openPopup();
+            .bindPopup("<b>Garage Jaulin</b><br>11 avenue Charles de Gaulle<br>79400 Saint-Maixent-l’École", {closeOnClick: false, autoClose: false});
 
-        var ceapl = L.marker([45.8496109, 1.1622291], {icon: orangeIcon})
+        var ceapl = L.marker([45.8496109, 1.1622291], {icon: blueIcon})
             .addTo(map)
-            .bindPopup("<b>Garage C.E.A.P.L.</b><br>10-12 route du Verdoyer<br>87430 Verneuil-sur-Vienne", {closeOnClick: false, autoClose: false})
-            .openPopup();
+            .bindPopup("<b>Garage C.E.A.P.L.</b><br>10-12 route du Verdoyer<br>87430 Verneuil-sur-Vienne", {closeOnClick: false, autoClose: false});
     });
 </script>
 

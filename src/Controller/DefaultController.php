@@ -28,6 +28,7 @@ class DefaultController extends AbstractController
     {
         $newVehicle = $vehicleRepository->findOneBy(['active' => true], ['createdAt' => 'DESC']);
         $vehicles = $vehicleRepository->findBy(['active' => true], ['createdAt' => 'DESC'], null, 1);
+        $vehiclesList = $vehicleRepository->findBy(['active' => true], ['createdAt' => 'DESC']);
 
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
@@ -55,6 +56,7 @@ class DefaultController extends AbstractController
         return $this->render('default/vehicules.html.twig', [
             'newVehicle' => $newVehicle,
             'vehicles' => $vehicles,
+            'vehiclesList' => $vehiclesList,
             'form' => $form->createView()
         ]);
     }
