@@ -13,7 +13,7 @@
     <img src={{ asset('images/home2.jpg') }} alt="Camions Ford">
     <div class="homeTopOverlay">
         <div class="homeTopWrapper">
-            <h1><span>Nouveau Ford F-Max</span><br>Le camion prêt à prendre la route...</h1>
+            <h1><span>Nouveau Ford F-Max</span><br>Le camion prêt<br>à prendre la route...</h1>
             <div class="homeTopButtons">
                 <a href={{ path('vehicules') }} class="btn btnOrange"><span>Nos véhicules en stock</span><img src={{ asset('images/orange-arrow.png') }}></a>
                 <a href="https://fordtrucks.com.tr/fr/" target="_blank" class="btn btnBlack"><span>Découvrir Ford Trucks</span><img src={{ asset('images/orange-arrow.png') }}></a>
@@ -67,8 +67,8 @@
                             </div>
                         </div>
                         <div class="back">
-                            <img src={{ asset('images/loupe.png') }}>
-                            <div class="btn btnOrange">
+                            <img src={{ asset('images/favicon.png') }}>
+                            <div class="btn">
                                 <span>En savoir plus</span>
                                 <img src={{ asset('images/orange-arrow.png') }}>
                             </div>
@@ -78,9 +78,7 @@
             {% endfor %}
         </div>
         <div class="homeVehiclesStock">
-            <div class="outline"></div>
-            <div class="inline"></div>
-            <div class="text">En stock</div>
+            <img src={{ asset('images/tampon.png') }} alt="En stock">
         </div>
         <div class="homeVehiclesButton">
             <a href={{ path('vehicules') }} class="btn btnOrange"><span>Voir tous les véhicules en stock</span><img src={{ asset('images/orange-arrow.png') }}></a>
@@ -149,7 +147,7 @@
             $('.homeVehiclesTitle').addClass('show');
             setTimeout(() => {
                 $('.homeVehiclesSubtitle').addClass('show');
-                $('.homeVehiclesStock').css('display', 'block');
+                $('.homeVehiclesStock').css('display', 'flex');
             }, 300);
             setTimeout(() => {
                 $('.homeVehiclesStock').addClass('show');

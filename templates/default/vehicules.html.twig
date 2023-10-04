@@ -82,15 +82,13 @@
 #}
         <div class="vehiclesList">
             {% for vehicle in vehiclesList %}
-                <a href="#" class="vehicleCard">
+                <div class="vehicleCard">
                     <div class="vehicleImage">
-                        <div class="vehicleImagesShow" id="images_{{vehicle.id}}">
+                        <div class="slick" id="images_{{vehicle.id}}">
                             {% for key, image in vehicle.images %}
-                                {% if key < 4 %}
-                                    <div class="image_{{key}}">
-                                        <img src={{ image | imagine_filter('vehicle') }} alt="Véhicule Ford">
-                                    </div>
-                                {% endif %}
+                                <div class="image_{{key}}">
+                                    <img src={{ image | imagine_filter('vehicle') }} alt="Véhicule Ford">
+                                </div>
                             {% endfor %}
                         </div>
                     </div>
@@ -112,15 +110,20 @@
                             </div>
                             <hr>
                             <div class="row">
-                                <div>{{ vehicle.mileageFromOdometer }}</div>
-                                <div></div>
-                                <div></div>
+                                {% if vehicle.mileageFromOdometer is not null %}
+                                    <div>{{ vehicle.mileageFromOdometer }}</div>                                    
+                                {% endif %}
+                                <div>{{ vehicle.carac1 }}</div>
+                                <div>{{ vehicle.carac2 }}</div>
+                                {% if vehicle.mileageFromOdometer is null %}
+                                    <div>{{ vehicle.carac3 }}</div>                                    
+                                {% endif %}
                             </div>
                             <hr>
                         </div>
-                        <div class="btn btnOrange"><span>Voir le détail</span><img src={{ asset('images/orange-arrow.png') }}></div>
+                        <a href={{ path('vehicule', {'id': vehicle.id}) }} class="btn btnOrange"><span>Voir le détail</span><img src={{ asset('images/orange-arrow.png') }}></a>
                     </div>
-                </a>
+                </div>
             {% endfor %}
         </div>
     </div>
@@ -212,7 +215,8 @@
 <script>
     $(document).ready(function(){
         $('.slick').slick({
-            dots: true
+            dots: true,
+            variableWidth: true
         });
     });
 </script>

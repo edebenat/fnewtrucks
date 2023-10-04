@@ -47,6 +47,18 @@ class Vehicle
     #[ORM\Column]
     private ?bool $active = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $carac1 = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $carac2 = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $carac3 = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $carac4 = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -180,6 +192,54 @@ class Vehicle
     public function setActive(bool $active): static
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    public function getCarac1(): ?string
+    {
+        return $this->carac1;
+    }
+
+    public function setCarac1(?string $carac1): static
+    {
+        $this->carac1 = $carac1;
+
+        return $this;
+    }
+
+    public function getCarac2(): ?string
+    {
+        return $this->carac2;
+    }
+
+    public function setCarac2(?string $carac2): static
+    {
+        $this->carac2 = $carac2;
+
+        return $this;
+    }
+
+    public function getCarac3(): ?string
+    {
+        return $this->carac3;
+    }
+
+    public function setCarac3(?string $carac3): static
+    {
+        $this->carac3 = $carac3;
+
+        return $this;
+    }
+
+    public function getCarac4(): ?string
+    {
+        return $this->carac4;
+    }
+
+    public function setCarac4(?string $carac4): static
+    {
+        $this->carac4 = $carac4;
 
         return $this;
     }

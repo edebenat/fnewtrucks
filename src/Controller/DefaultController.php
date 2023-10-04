@@ -65,8 +65,31 @@ class DefaultController extends AbstractController
     #[Route('/vehicules/{id}', name: 'vehicule')]
     public function vehicule(Vehicle $vehicle, Request $request, MailerInterface $mailer): Response
     {
-        return $this->render('default/vehicle.html.twig', [
-            'vehicle' => $vehicle
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $firstname = $form->get('firstname')->getData();
+            $lastname = $form->get('lastname')->getData();
+            $email = $form->get('email')->getData();
+            $tel = $form->get('tel')->getData();
+
+            $title = $vehicle->getModel().' '.$vehicle->getState();
+            $mail =(new Email())
+                ->from('ne-pas-repondre@fnewtrucks.fr')
+                ->to('marketing@fnewtrucks.fr')
+                ->subject('F New Trucks : Quelqu\'un est interressé par un véhicule')
+                ->html("<h1>$title</h1><p>Nom : $firstname $lastname<br>Email : $email<br>Téléphone : $tel</p>")
+            ;
+    
+            $mailer->send($mail);
+    
+            return $this->render('default/confirm-email.html.twig');
+        }
+
+        return $this->render('default/vehicule.html.twig', [
+            'vehicle' => $vehicle,
+            'form' => $form->createView()
         ]);
     }
 

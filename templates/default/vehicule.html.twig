@@ -12,116 +12,46 @@
 {% endblock %}
 
 {% block body %}
-<section class="vehiclesTop">
-    <img src={{ asset('images/vehicules2.jpg') }} alt="Camions Ford" class="vehiclesTopImg">
-    <div class="vehiclesTopOverlay">
-        <div class="vehiclesTopWrapper">
-            <h1>Notre politique :<br>des véhicules prêts à partir</h1>
-            <p>Chez F New Trucks, nous mettons tout en oeuvre pour <br class="lg">vous proposer des véhicules disponibles de suite.</p>
-            <div class="vehiclesTopButtons">
-                <a href={{ path('contact') }} class="btn btnOrange"><span>Nous contacter</span><img src={{ asset('images/orange-arrow.png') }}></a>
+<section class="vehicleOne">
+    <div class="vehicleOneImages">
+        {% for key, image in vehicle.images %}
+            <div class="vehicleOneImage">
+                <img src={{ asset(image) }} alt="{{ vehicle.model }}">
             </div>
-        </div>
+        {% endfor %}
     </div>
-</section>
-
-<section class="vehiclesVehicles">
-    <div class="vehiclesVehiclesWrapper">
-{#
-        <div class="vehiclesVehiclesNew">
-            <div class="slick" id="newSwiper">
-                {% for key, image in newVehicle.images %}
-                <div class="swiper-slide">
-                    <img src={{ asset(image) }} alt="Véhicule Ford" onclick="openImg({{newVehicle.id}}, {{key}})">
-                    <img src={{ asset('images/agrandir-la-fenetre.png') }} class="vehiclesOpenImg" onclick="openImg({{newVehicle.id}}, {{key}})">
-                </div>                
-                {% endfor %}
+    <div class="vehicleOneDetails">
+        <div class="vehicleOneTitle">
+            <h1>{{ vehicle.model }}</h1>
+            <p>{{ vehicle.type }}</p>
+        </div>
+        <div class="vehicleOneCaracts">
+            <hr>
+            <div class="row">
+                <div>{{ vehicle.state }}</div>
+                <div>{{ vehicle.enginePower }}</div>
+                <div>{{ vehicle.gears }}</div>
             </div>
-            <div class="vehiclesVehiclesnewInfos">
-                <h2>{{ newVehicle.model }}</h2>
-                <p>{{ newVehicle.type }} | {{ newVehicle.gears }} | {{ newVehicle.enginePower }} | {{ newVehicle.state }}{% if newVehicle.mileageFromOdometer is not null %} | {{ newVehicle.mileageFromOdometer }}{% endif %}</p>
-                <hr>
-                <p class="vehiclesVehiclesEquipments">Équipements :</p>
-                <p class="vehiclesVehiclesEquipments">{{ newVehicle.equipments }}</p>
-                {% if newVehicle.guarantee is not empty %}
-                    <p class="vehiclesVehiclesGuarantee">{{ newVehicle.guarantee }}</p>
+            <hr>
+            <div class="row">
+                {% if vehicle.mileageFromOdometer is not null %}
+                    <div>{{ vehicle.mileageFromOdometer }}</div>                                    
                 {% endif %}
-                <div>
-                    <div class="btn btnOrange" onclick="openForm({{newVehicle.id}})"><span>Je suis intéressé</span><img src={{ asset('images/orange-arrow.png') }}></div>
-                </div>
-                <span class="vehiclesNew">Nouveauté</span>
+                <div>{{ vehicle.carac1 }}</div>
+                <div>{{ vehicle.carac2 }}</div>
+                {% if vehicle.mileageFromOdometer is null %}
+                    <div>{{ vehicle.carac3 }}</div>                                    
+                {% endif %}
             </div>
+            <hr>
         </div>
-        <div class="vehiclesVehiclesCards">
-            {% for vehicle in vehicles %}
-                <div class="vehiclesVehiclesCard">
-                    <div class="vehiclesVehiclesImages">
-                        <div class="slick">
-                            {% for key, image in vehicle.images %}
-                                <div class="swiper-slide">
-                                    <img src={{ image | imagine_filter('vehicle') }} alt="Véhicule Ford">
-                                    <img src={{ asset('images/agrandir-la-fenetre.png') }} class="vehiclesOpenImg" onclick="openImg({{vehicle.id}}, {{key}})">
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="vehiclesVehiclesInfos">
-                        <h2>{{ vehicle.model }}</h2>
-                        <p class="vehiclesVehiclesDescription">{{ vehicle.type }} | {{ vehicle.gears }} | {{ vehicle.enginePower }} | {{ vehicle.state }}{% if vehicle.mileageFromOdometer is not null %} | {{ vehicle.mileageFromOdometer }}{% endif %}</p>
-                        <p class="vehiclesVehiclesEquipments">Équipements :<br>{{ vehicle.equipments }}</p>
-                        {% if vehicle.guarantee is not empty %}
-                            <p class="vehiclesVehiclesGuarantee">{{ vehicle.guarantee }}</p>                            
-                        {% endif %}
-                        <div>
-                            <div class="btn btnOrange" onclick="openForm({{vehicle.id}})"><span>Je suis intéressé</span><img src={{ asset('images/orange-arrow.png') }}></div>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+        <div class="vehicleOneEquipments">
+            <div class="bold">Equipements :</div>
+            <div>{{ vehicle.equipments | raw }}</div>
         </div>
-#}
-        <div class="vehiclesList">
-            {% for vehicle in vehiclesList %}
-                <a href="#" class="vehicleCard">
-                    <div class="vehicleImage">
-                        <div class="vehicleImagesShow" id="images_{{vehicle.id}}">
-                            {% for key, image in vehicle.images %}
-                                {% if key < 4 %}
-                                        <img src={{ image | imagine_filter('vehicle') }} alt="Véhicule Ford" class="image_{{key}}">
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="vehicleInfos">
-                        <div class="vehicleTitle">
-                            <h2>{{ vehicle.model }}</h2>
-                        </div>
-                        <div class="vehicleSubtitle">
-                            {{ vehicle.type }}
-                        </div>
-                        <div class="vehicleCarac">
-                            <hr>
-                            <div class="row">
-                                <div>{{ vehicle.state }}</div>
-                                <div>{{ vehicle.enginePower }}</div>
-                                <div>{{ vehicle.gears }}</div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div>{{ vehicle.mileageFromOdometer }}</div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                            <hr>
-                        </div>
-                        <div class="btn btnOrange"><span>Voir le détail</span><img src={{ asset('images/orange-arrow.png') }}></div>
-                    </div>
-                </a>
-            {% endfor %}
-        </div>
+        <div class="btn btnOrange" onclick="openForm({{vehicle.id}})"><span>Je suis intéressé</span><img src={{ asset('images/orange-arrow.png') }}></div>
     </div>
 </section>
-
 <section id="fnt-contact" class="fnt-contact">
     <div class="fnt-departements">
         <div class="fnt-col1">
@@ -175,20 +105,6 @@
         </div>
     </div>
 </section>
-{% for key, image in newVehicle.images %}
-    <div class="vehiclesImageBig" id="img{{newVehicle.id}}-{{key}}" onclick="closeImg($(this))">
-        <img src={{ asset(image) }}>
-        <img src={{ asset('images/cancel_white.png') }} class="vehiclesCloseImg">
-    </div>
-{% endfor %}
-{% for vehicle in vehicles %}
-    {% for key, image in vehicle.images %}
-        <div class="vehiclesImageBig" id="img{{vehicle.id}}-{{key}}" onclick="closeImg($(this))">
-            <img src={{ asset(image) }}>
-            <img src={{ asset('images/cancel_white.png') }} class="vehiclesCloseImg">
-        </div>
-    {% endfor %}
-{% endfor %}
 <div class="vehiclesForm" id="vehiclesForm">
     {{ form_start(form, {'attr': {'id': 'contactForm'}}) }}
         <h2>Nous contacter</h2>

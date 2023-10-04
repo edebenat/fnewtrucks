@@ -55,6 +55,18 @@ class VehicleType extends AbstractType
                     'placeholder' => '55 000 kms'
                 ]
             ])
+            ->add('carac1', TextType::class, [
+                'required' => false
+            ])
+            ->add('carac2', TextType::class, [
+                'required' => false
+            ])
+            ->add('carac3', TextType::class, [
+                'required' => false
+            ])
+            ->add('carac4', TextType::class, [
+                'required' => false
+            ])
             ->add('equipments', TextareaType::class, [
                 'label' => 'Equipements',
                 'required' => false,
