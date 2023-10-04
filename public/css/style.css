@@ -317,10 +317,18 @@ header{
 .headerMenu a{
     text-decoration: none;
     color: white;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: bold;
     position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4em;
 }
+.headerMenu a img{
+    transform: rotateZ(90deg);
+}
+/*
 .headerMenu a::after{
     content: "";
     position: absolute;
@@ -334,6 +342,7 @@ header{
 .headerMenu a:hover::after{
     width: 100%;
 }
+*/
 footer{
     display: flex;
     flex-direction: column;
@@ -385,14 +394,16 @@ footer{
 }
 .homeTopWrapper h1{
     color: white;
-    font-size: 3em;
+    font-size: 3.4em;
     line-height: 1.4em;
     font-weight: bold;
     animation: homeTitle 2s;
 }
 .homeTopWrapper h1 span{
     font-weight: 400;
-    font-size: 0.8em;
+    font-size: 0.5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 .homeTopButtons{
     display: flex;
@@ -432,6 +443,17 @@ footer{
 .btnOrange:hover img{
     filter: brightness(1) invert(0);
 }
+.btnOrange2{
+    background-color: #f36b34;
+    color: white;
+    border: 2px solid #f36b34;
+}
+.btnOrange2 img{
+    filter: brightness(0) invert(1);
+}
+.btnOrange2:hover{
+    scale: 1.02;
+}
 .btnTransparent{
     background-color: transparent;
     color: #f36b34;
@@ -453,6 +475,17 @@ footer{
     background-color: transparent;
 }
 .btnBlack img{
+    filter: brightness(0) invert(1);
+}
+.btnBlack2{
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+}
+.btnBlack2:hover{
+    scale: 1.02;
+}
+.btnBlack2 img{
     filter: brightness(0) invert(1);
 }
 .fnt-cat-section{
@@ -664,7 +697,7 @@ footer{
     justify-content: center;
 }
 .homeVehiclesStock.show{
-    opacity: 1;
+    opacity: 0.5;
     scale: 1;
 }
 .homeVehiclesStock .outline{
@@ -1593,14 +1626,14 @@ footer{
 .vehicleCarac .row > div{
     height: 1em;
 }
-
+/*
 .slick, .slick-list, .slick-track, .slick-slide, .slick-slide img{
     height: 100%;
 }
 .slick-slide{
     transform: translateX(-15%);
 }
-
+*/
 .vehicleOne{
     display: flex;
     flex-direction: row;
@@ -1628,7 +1661,7 @@ footer{
     min-width: 100%;
 }
 .vehicleOneDetails{
-    width: calc(50vh - (100vh - 1400px) / 2);
+    width: calc(50vw - (100vw - 1400px + 4em) / 2);
     padding: 2em;
     display: flex;
     flex-direction: column;
@@ -1654,9 +1687,31 @@ footer{
 .vehicleOneEquipments{
     font-size: 1.2em;
     margin: 1em 0;
+    line-height: 1.4em;
 }
 .vehicleOneEquipments .bold{
     font-weight: bold;
+}
+.vehicleOneEquipments .light{
+    font-weight: 100;
+}
+#vehicleGallery{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000aa;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000000;
+}
+#vehicleGallery.show{
+    display: flex;
+}
+#vehicleGallery .slick{
+    width: 50%;
 }
 
 @keyframes mapPoint {

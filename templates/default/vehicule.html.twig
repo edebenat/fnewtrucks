@@ -15,7 +15,7 @@
 <section class="vehicleOne">
     <div class="vehicleOneImages">
         {% for key, image in vehicle.images %}
-            <div class="vehicleOneImage">
+            <div class="vehicleOneImage" onclick="openGallery({{key}})">
                 <img src={{ asset(image) }} alt="{{ vehicle.model }}">
             </div>
         {% endfor %}
@@ -47,7 +47,7 @@
         </div>
         <div class="vehicleOneEquipments">
             <div class="bold">Equipements :</div>
-            <div>{{ vehicle.equipments | raw }}</div>
+            <div class="light">{{ vehicle.equipments | raw }}</div>
         </div>
         <div class="btn btnOrange" onclick="openForm({{vehicle.id}})"><span>Je suis intéressé</span><img src={{ asset('images/orange-arrow.png') }}></div>
     </div>
@@ -105,6 +105,13 @@
         </div>
     </div>
 </section>
+<div id="vehicleGallery">
+    <div class="slick">
+        {% for image in vehicle.images %}
+            <img src={{ asset(image) }}>
+        {% endfor %}
+    </div>
+</div>
 <div class="vehiclesForm" id="vehiclesForm">
     {{ form_start(form, {'attr': {'id': 'contactForm'}}) }}
         <h2>Nous contacter</h2>
@@ -129,6 +136,16 @@
     });
 </script>
 <script>
+    function openGallery(key){
+        $('.slick').slick('slickGoTo', key);
+        $('#vehicleGallery').addClass('show');
+    }
+    $('#vehicleGallery').click(function(){
+        $('#vehicleGallery').removeClass('show');
+    }).children().click(function(e){
+        return false;
+    });
+
     function closeImg(div){
         div.removeClass('show');
     }
