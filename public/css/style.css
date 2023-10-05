@@ -1698,7 +1698,7 @@ footer{
 .vehicleOneCaracts .row > div{
     flex: 1;
 }
-.vehicleOneEquipments{
+.vehicleOneEquipments, .vehicleOneGuarantee{
     font-size: 1.2em;
     margin: 1em 0;
     line-height: 1.4em;
@@ -1708,6 +1708,9 @@ footer{
 }
 .vehicleOneEquipments .light{
     font-weight: 100;
+}
+.vehicleOneGuarantee{
+    font-weight: bold;
 }
 #vehicleGallery{
     position: fixed;

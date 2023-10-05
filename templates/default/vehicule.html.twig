@@ -82,6 +82,9 @@
             <div class="bold">Equipements :</div>
             <div class="light">{{ vehicle.equipments | raw }}</div>
         </div>
+        <div class="vehicleOneGuarantee">
+            <div>{{ vehicle.guarantee }}</div>
+        </div>
         <div class="btn btnOrange" onclick="openForm({{vehicle.id}})"><span>Je suis intéressé</span><img src={{ asset('images/orange-arrow.png') }}></div>
     </div>
 </section>
