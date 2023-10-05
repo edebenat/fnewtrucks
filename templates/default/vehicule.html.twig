@@ -38,21 +38,42 @@
             <p>{{ vehicle.type }}</p>
         </div>
         <div class="vehicleOneCaracts">
+            {% if vehicle.mileageFromOdometer|length %}
+                {% set new = false %}
+            {% else %}
+                {% set new = true %}
+            {% endif %}
             <hr>
             <div class="row">
-                <div>{{ vehicle.state }}</div>
-                <div>{{ vehicle.enginePower }}</div>
-                <div>{{ vehicle.gears }}</div>
+                {% if new == false %}
+                    <div>{{ vehicle.state }}</div>
+                    <div>{{ vehicle.mileageFromOdometer }}</div>
+                    <div>{{ vehicle.enginePower }}</div>
+                {% else %}
+                    <div>{{ vehicle.state }}</div>
+                    <div>{{ vehicle.enginePower }}</div>
+                    <div>{{ vehicle.gears }}</div>
+                {% endif %}
             </div>
             <hr>
             <div class="row">
-                {% if vehicle.mileageFromOdometer is not null %}
-                    <div>{{ vehicle.mileageFromOdometer }}</div>                                    
+                {% if new == false %}
+                    <div>{{ vehicle.gears }}</div>
+                    <div>{{ vehicle.carac1 }}</div>
+                    <div>{{ vehicle.carac2 }}</div>
+                {% else %}
+                    <div>{{ vehicle.carac1 }}</div>
+                    <div>{{ vehicle.carac2 }}</div>
+                    <div>{{ vehicle.carac3 }}</div>
                 {% endif %}
-                <div>{{ vehicle.carac1 }}</div>
-                <div>{{ vehicle.carac2 }}</div>
-                {% if vehicle.mileageFromOdometer is null %}
-                    <div>{{ vehicle.carac3 }}</div>                                    
+            </div>
+            <hr>
+            <div class="row">
+                {% if new == false %}
+                    <div>{{ vehicle.carac3 }}</div>
+                    <div>{{ vehicle.carac4 }}</div>
+                {% else %}
+                    <div>{{ vehicle.carac4 }}</div>
                 {% endif %}
             </div>
             <hr>
