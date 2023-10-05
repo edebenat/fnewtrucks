@@ -325,8 +325,12 @@ header{
     align-items: center;
     gap: 0.4em;
 }
-.headerMenu a img{
+.headerMenuArrow{
     transform: rotateZ(90deg);
+    transition: all 0.3s;
+}
+.headerMenu a:hover .headerMenuArrow{
+    transform: rotateZ(0);
 }
 /*
 .headerMenu a::after{
@@ -1561,7 +1565,7 @@ footer{
     /*scale: 1.01;*/
 }
 .vehicleImage{
-    max-width: 300px;
+    max-width: 320px;
     height: 100%;
 }
 .vehicleImagesShow{
@@ -1626,14 +1630,14 @@ footer{
 .vehicleCarac .row > div{
     height: 1em;
 }
-/*
+
 .slick, .slick-list, .slick-track, .slick-slide, .slick-slide img{
     height: 100%;
 }
 .slick-slide{
     transform: translateX(-15%);
 }
-*/
+
 .vehicleOne{
     display: flex;
     flex-direction: row;

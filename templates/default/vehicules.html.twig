@@ -102,21 +102,45 @@
                             </div>
                         </div>
                         <div class="vehicleCarac">
+                            {% if vehicle.mileageFromOdometer == '' %}
+                                {% set new = true %}
+                            {% else %}
+                                {% set new = false %}
+                            {% endif %}
                             <hr>
                             <div class="row">
                                 <div>{{ vehicle.state }}</div>
                                 <div>{{ vehicle.enginePower }}</div>
-                                <div>{{ vehicle.gears }}</div>
                             </div>
                             <hr>
                             <div class="row">
-                                {% if vehicle.mileageFromOdometer is not null %}
+                                <div>{{ vehicle.gears }}</div>
+                                {% if new == false %}
                                     <div>{{ vehicle.mileageFromOdometer }}</div>                                    
                                 {% endif %}
-                                <div>{{ vehicle.carac1 }}</div>
-                                <div>{{ vehicle.carac2 }}</div>
-                                {% if vehicle.mileageFromOdometer is null %}
-                                    <div>{{ vehicle.carac3 }}</div>                                    
+                                {% if new == true %}
+                                    <div>{{ vehicle.carac1 }}</div>                                  
+                                {% endif %}
+                            </div>
+                            <hr>
+                            <div class="row">
+                                {% if new == false %}
+                                    <div>{{ vehicle.carac1 }}</div>
+                                    <div>{{ vehicle.carac2 }}</div>                                    
+                                {% endif %}
+                                {% if new == true %}
+                                    <div>{{ vehicle.carac2 }}</div>
+                                    <div>{{ vehicle.carac3 }}</div>                                  
+                                {% endif %}
+                            </div>
+                            <hr>
+                            <div class="row">
+                                {% if new == false %}
+                                    <div>{{ vehicle.carac3 }}</div>
+                                    <div>{{ vehicle.carac4 }}</div>                                    
+                                {% endif %}
+                                {% if new == true %}
+                                    <div>{{ vehicle.carac4 }}</div>
                                 {% endif %}
                             </div>
                             <hr>
