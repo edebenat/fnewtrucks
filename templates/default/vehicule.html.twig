@@ -38,7 +38,7 @@
             <p>{{ vehicle.type }}</p>
         </div>
         <div class="vehicleOneCaracts">
-            {% if vehicle.mileageFromOdometer|length %}
+            {% if vehicle.mileageFromOdometer is not empty %}
                 {% set new = false %}
             {% else %}
                 {% set new = true %}

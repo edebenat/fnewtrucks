@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div class="vehicleCarac">
-                            {% if vehicle.mileageFromOdometer|length %}
+                            {% if vehicle.mileageFromOdometer is not empty %}
                                 {% set new = false %}
                             {% else %}
                                 {% set new = true %}
