@@ -97,5 +97,14 @@
                 <img src={{asset("images/FORD_TRUCKS_LOGO-02.png")}} alt="Logo Ford Trucks" width="60" class="fnt-logo-last">
             </div>
         </footer>
+        <script>
+            $(window).on('scroll', function(){
+                var scroll2 = $("#fnt-contact").position().top - 500;
+                if ($(this).scrollTop() > scroll2) {
+                    $('.fnt-col1').addClass('show');
+                    $('.fnt-col2').addClass('show');
+                }
+            });
+        </script>
     </body>
 </html>
