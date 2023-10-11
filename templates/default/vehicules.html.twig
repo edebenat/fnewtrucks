@@ -20,7 +20,7 @@
             <h1>Notre politique :<br>des véhicules prêts à partir</h1>
             <p>Chez F New Trucks, nous mettons tout en oeuvre pour <br class="lg">vous proposer des véhicules disponibles de suite.</p>
             <div class="vehiclesTopButtons">
-                <a href={{ path('contact') }} class="btn btnOrange"><span>Nous contacter</span><img src={{ asset('images/orange-arrow.png') }}></a>
+                <a href={{ path('contact') }} class="btn btnOrange2"><span>Nous contacter</span><img src={{ asset('images/orange-arrow.png') }}></a>
             </div>
         </div>
     </div>
@@ -28,59 +28,6 @@
 
 <section class="vehiclesVehicles">
     <div class="vehiclesVehiclesWrapper">
-{#
-        <div class="vehiclesVehiclesNew">
-            <div class="slick" id="newSwiper">
-                {% for key, image in newVehicle.images %}
-                <div class="swiper-slide">
-                    <img src={{ asset(image) }} alt="Véhicule Ford" onclick="openImg({{newVehicle.id}}, {{key}})">
-                    <img src={{ asset('images/agrandir-la-fenetre.png') }} class="vehiclesOpenImg" onclick="openImg({{newVehicle.id}}, {{key}})">
-                </div>                
-                {% endfor %}
-            </div>
-            <div class="vehiclesVehiclesnewInfos">
-                <h2>{{ newVehicle.model }}</h2>
-                <p>{{ newVehicle.type }} | {{ newVehicle.gears }} | {{ newVehicle.enginePower }} | {{ newVehicle.state }}{% if newVehicle.mileageFromOdometer is not null %} | {{ newVehicle.mileageFromOdometer }}{% endif %}</p>
-                <hr>
-                <p class="vehiclesVehiclesEquipments">Équipements :</p>
-                <p class="vehiclesVehiclesEquipments">{{ newVehicle.equipments }}</p>
-                {% if newVehicle.guarantee is not empty %}
-                    <p class="vehiclesVehiclesGuarantee">{{ newVehicle.guarantee }}</p>
-                {% endif %}
-                <div>
-                    <div class="btn btnOrange" onclick="openForm({{newVehicle.id}})"><span>Je suis intéressé</span><img src={{ asset('images/orange-arrow.png') }}></div>
-                </div>
-                <span class="vehiclesNew">Nouveauté</span>
-            </div>
-        </div>
-        <div class="vehiclesVehiclesCards">
-            {% for vehicle in vehicles %}
-                <div class="vehiclesVehiclesCard">
-                    <div class="vehiclesVehiclesImages">
-                        <div class="slick">
-                            {% for key, image in vehicle.images %}
-                                <div class="swiper-slide">
-                                    <img src={{ image | imagine_filter('vehicle') }} alt="Véhicule Ford">
-                                    <img src={{ asset('images/agrandir-la-fenetre.png') }} class="vehiclesOpenImg" onclick="openImg({{vehicle.id}}, {{key}})">
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="vehiclesVehiclesInfos">
-                        <h2>{{ vehicle.model }}</h2>
-                        <p class="vehiclesVehiclesDescription">{{ vehicle.type }} | {{ vehicle.gears }} | {{ vehicle.enginePower }} | {{ vehicle.state }}{% if vehicle.mileageFromOdometer is not null %} | {{ vehicle.mileageFromOdometer }}{% endif %}</p>
-                        <p class="vehiclesVehiclesEquipments">Équipements :<br>{{ vehicle.equipments }}</p>
-                        {% if vehicle.guarantee is not empty %}
-                            <p class="vehiclesVehiclesGuarantee">{{ vehicle.guarantee }}</p>                            
-                        {% endif %}
-                        <div>
-                            <div class="btn btnOrange" onclick="openForm({{vehicle.id}})"><span>Je suis intéressé</span><img src={{ asset('images/orange-arrow.png') }}></div>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-#}
         <div class="vehiclesList">
             {% for vehicle in vehiclesList %}
                 <div class="vehicleCard">
@@ -103,52 +50,85 @@
                             </div>
                         </div>
                         <div class="vehicleCarac">
-                            {% if vehicle.mileageFromOdometer is not empty %}
-                                {% set new = false %}
-                            {% else %}
-                                {% set new = true %}
+                            {% set caracs = [] %}
+                            {% set maxCaracs = 0 %}
+                            {% if vehicle.state is not empty %}
+                                {% set caracs = caracs|merge([vehicle.state]) %}
+                                {% set maxCaracs = maxCaracs + 1 %}
                             {% endif %}
+                            {% if vehicle.mileageFromOdometer is not empty %}
+                                {% set caracs = caracs|merge([vehicle.mileageFromOdometer]) %}
+                                {% set maxCaracs = maxCaracs + 1 %}
+                            {% endif %}
+                            {% if vehicle.enginePower is not empty %}
+                                {% set caracs = caracs|merge([vehicle.enginePower]) %}
+                                {% set maxCaracs = maxCaracs + 1 %}
+                            {% endif %}
+                            {% if vehicle.gears is not empty %}
+                                {% set caracs = caracs|merge([vehicle.gears]) %}
+                                {% set maxCaracs = maxCaracs + 1 %}
+                            {% endif %}
+                            {% if vehicle.carac1 is not empty %}
+                                {% set caracs = caracs|merge([vehicle.carac1]) %}
+                                {% set maxCaracs = maxCaracs + 1 %}
+                            {% endif %}
+                            {% if vehicle.carac2 is not empty %}
+                                {% set caracs = caracs|merge([vehicle.carac2]) %}
+                                {% set maxCaracs = maxCaracs + 1 %}
+                            {% endif %}
+                            {% if vehicle.carac3 is not empty %}
+                                {% set caracs = caracs|merge([vehicle.carac3]) %}
+                                {% set maxCaracs = maxCaracs + 1 %}
+                            {% endif %}
+                            {% if vehicle.carac4 is not empty %}
+                                {% set caracs = caracs|merge([vehicle.carac4]) %}
+                                {% set maxCaracs = maxCaracs + 1 %}
+                            {% endif %}
+
+
                             <hr>
-                            <div class="row">                                
-                                {% if new == false %}
-                                    <div>{{ vehicle.state }}</div>
-                                    <div>{{ vehicle.mileageFromOdometer }}</div>                                    
+                            <div class="row">
+                                {% set i = 0 %}
+                                {% if i < maxCaracs %}
+                                    <div>{{ caracs[i] }}</div>
+                                    {% set i = i + 1 %}
                                 {% endif %}
-                                {% if new == true %}
-                                    <div>{{ vehicle.state }}</div>
-                                    <div>{{ vehicle.enginePower }}</div>                                  
+                                {% if i < maxCaracs %}
+                                    <div>{{ caracs[i] }}</div>
+                                    {% set i = i + 1 %}
                                 {% endif %}
+                                {% if i < maxCaracs %}
                             </div>
                             <hr>
                             <div class="row">
-                                {% if new == false %}
-                                    <div>{{ vehicle.enginePower }}</div>
-                                    <div>{{ vehicle.gears }}</div>                                 
+                                    <div>{{ caracs[i] }}</div>
+                                    {% set i = i + 1 %}
                                 {% endif %}
-                                {% if new == true %}
-                                    <div>{{ vehicle.gears }}</div>
-                                    <div>{{ vehicle.carac1 }}</div>                                  
+                                {% if i < maxCaracs %}
+                                    <div>{{ caracs[i] }}</div>
+                                    {% set i = i + 1 %}
                                 {% endif %}
+                                {% if i < maxCaracs %}
                             </div>
                             <hr>
                             <div class="row">
-                                {% if new == false %}
-                                    <div>{{ vehicle.carac1 }}</div>
-                                    <div>{{ vehicle.carac2 }}</div>                                    
+                                    <div>{{ caracs[i] }}</div>
+                                    {% set i = i + 1 %}
                                 {% endif %}
-                                {% if new == true %}
-                                    <div>{{ vehicle.carac2 }}</div>
-                                    <div>{{ vehicle.carac3 }}</div>                                  
+                                {% if i < maxCaracs %}
+                                    <div>{{ caracs[i] }}</div>
+                                    {% set i = i + 1 %}
                                 {% endif %}
+                                {% if i < maxCaracs %}
                             </div>
                             <hr>
                             <div class="row">
-                                {% if new == false %}
-                                    <div>{{ vehicle.carac3 }}</div>
-                                    <div>{{ vehicle.carac4 }}</div>                                    
+                                    <div>{{ caracs[i] }}</div>
+                                    {% set i = i + 1 %}
                                 {% endif %}
-                                {% if new == true %}
-                                    <div>{{ vehicle.carac4 }}</div>
+                                {% if i < maxCaracs %}
+                                    <div>{{ caracs[i] }}</div>
+                                    {% set i = i + 1 %}
                                 {% endif %}
                             </div>
                             <hr>
@@ -164,13 +144,12 @@
 <section id="fnt-contact" class="fnt-contact">
     <div class="fnt-departements">
         <div class="fnt-col1">
-            <h3>Départements 17, 79, 86</h3>
+            <h3>F NEW TRUCKS 79</h3>
             <div class="fnt-av-commerce">
                 <div class="fnt-av">
                     <h4>Après-vente</h4>
-                    <h5>F NEW TRUCKS 79</h5>
+                    <h5>Garage JAULIN</h5>
                     <p>
-                        Garage Jaulin<br>
                         11 avenue Charles de Gaulle<br>
                         79400 Saint-Maixent-l’École<br>
                         <a href="tel:+33549056504">05 49 05 65 04</a>
@@ -189,13 +168,12 @@
             </div>
         </div>
         <div class="fnt-col2">
-            <h3>Départements 16, 19, 23, 24, 87</h3>
+            <h3>F NEW TRUCKS 87</h3>
             <div class="fnt-av-commerce">
                 <div class="fnt-av">
                     <h4>Après-vente</h4>
-                    <h5>F NEW TRUCKS 87</h5>
+                    <h5>Garage C.E.A.P.L.</h5>
                     <p>
-                        Garage C.E.A.P.L.<br>
                         10-12 route du Verdoyer<br>
                         87430 Verneuil-sur-Vienne<br>
                         <a href="tel:+33555480483">05 55 48 04 83</a>

@@ -1,17 +1,5 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}F New Trucks - Confirmation{% endblock %}
-
-{% block stylesheets %}
-{% endblock %}
-
-{% block javascripts %}
-{% endblock %}
-
-{% block body %}
-    <section class="annexes">
-        <div class="annexesWrapper">
-            <h1>Votre demande a bien été envoyée.</h1>
-        </div>
-    </section>
-{% endblock %}
+<div class="vehiclesFormConfirm">
+    <img src={{asset("images/coche.png")}} width=64 height=64>
+    <div>Merci pour votre demande<br>Nous vous recontacterons rapidement.</div>
+    <div class="btn btnTransparent" onclick="clearForm();"><span>Fermer</span><img src={{ asset('images/orange-arrow.png') }}></div>
+</div>

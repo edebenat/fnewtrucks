@@ -6,6 +6,7 @@ use App\Entity\Vehicle;
 use App\Form\ContactType;
 use App\Repository\VehicleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
@@ -115,5 +116,32 @@ class DefaultController extends AbstractController
     public function sendEmail(): Response
     {
         return $this->render('default/confirm-email.html.twig');
+    }
+
+    #[Route('/ajax/send_mail', name: 'send_mail', options: ['expose' => true])]
+    public function send_mail(Request $request, VehicleRepository $vehicleRepository, MailerInterface $mailer): JsonResponse
+    {
+        $id = $request->request->get('id');
+        $vehicle = $vehicleRepository->find($id);
+        $firstname = $request->request->get('firstname');
+        $lastname = $request->request->get('lastname');
+        $email = $request->request->get('email');
+        $tel = $request->request->get('tel');
+
+        $title = $vehicle->getModel().' '.$vehicle->getState();
+        $mail =(new Email())
+            ->from('ne-pas-repondre@fnewtrucks.fr')
+            ->to('marketing@fnewtrucks.fr')
+            ->subject('F New Trucks : Quelqu\'un est interressé par un véhicule')
+            ->html("<h1>$title</h1><p>Nom : $firstname $lastname<br>Email : $email<br>Téléphone : $tel</p>")
+        ;
+
+        $mailer->send($mail);
+
+        $html = $this->render('default/confirm-email.html.twig')->getContent();
+
+        return $this->json([
+            'html' => $html
+        ]);
     }
 }

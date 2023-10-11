@@ -1,0 +1,241 @@
+@media screen and (max-width: 1400px) {
+    body{
+        overflow-x: hidden;
+    }
+    #logo-f-new-trucks{
+        left: 16px;
+        height: 70px;
+        width: unset;
+    }
+    #carte-france, #carte-departements{
+        display: none;
+    }
+    .fnt-departements{
+        flex-direction: column;
+    }
+    .fnt-midcol{
+        width: 100%;
+        height: 60px;
+        background: linear-gradient(175deg, #ED6227 0, #ED6227 47%, white 47%, white 52%, #1d315a 52%, #1d315a 100%);
+    }
+    .fnt-col1, .fnt-col2{
+        padding: 16px;
+    }
+    footer{
+        padding: 16px;
+    }
+    .fnt-footer{
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 1400px) {
+    #background{
+        top: 0;
+        transform: unset;
+        width: unset;
+        height: 100%;
+        left: 0;
+    }
+}
+@media screen and (max-width: 599px) {
+    #background{
+        top: 0;
+        transform: translateX(-39%);
+        width: unset;
+        height: 100%;
+        left: 50%;
+    }
+    .fnt-cat-wrapper{
+        width: unset;
+        margin: 0 1em;
+    }
+}
+@media screen and (max-width: 1600px) {
+    .fnt-av-commerce p{
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .fnt-col1 h3, .fnt-col2 h3 {
+        font-size: 24px;
+    }
+    .fnt-col1 h4, .fnt-col2 h4{
+        font-size: 22px;
+    }
+    .fnt-col1 h5, .fnt-col2 h5{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .headerMenu{
+        position: fixed;
+        background-color: black;
+        width: 100vw;
+        height: 100%;
+        top: 75px;
+        left: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        padding-top: 4em;
+        transition: all 0.3s;
+    }
+    .headerMenu.open{
+        left: 0;
+    }
+    .headerMenu ul{
+        flex-direction: column;
+        padding: 0;
+    }
+    .headerMenuOpen{
+        display: block;
+    }
+    .headerLogo{
+        padding-left: 1em;
+    }
+    .homeTop{
+        height: calc(100vh - 80px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .homeTop img{
+        max-width: unset;
+        max-height: 100%;
+    }
+    .homeTopWrapper{
+        margin-top: 1em;
+        padding: 0 1em;
+        width: unset;
+    }
+    .homeTopWrapper h1{
+        font-size: 2.2em;
+    }
+    .homeTopButtons{
+        flex-direction: column;
+        gap: 1em;
+    }
+    .homeTopButtons a{
+        width: fit-content;
+    }
+    .fnt-categories{
+        grid-template-columns: 1fr;
+        gap: 2em;
+        padding: 0 1em;
+    }
+    .fnt-cat-section p{
+        margin-bottom: 3em;
+    }
+    .homeVehicles{
+        padding: 2em 1em 4em;
+    }
+    .homeVehiclesVehicles{
+        grid-template-columns: 1fr;
+    }
+    .fnt-av-commerce{
+        flex-direction: column;
+    }
+    .vehiclesTop{
+        height: calc(100vh - 80px);
+        display: flex;
+        justify-content: end;
+    }
+    .vehiclesTop img{
+        max-width: unset;
+        height: 100%;
+        transform: translateX(30%);
+    }
+    .vehiclesTopOverlay{
+        background-color: #00000050;
+    }
+    .vehiclesTopWrapper{
+        width: unset;
+        padding: 0 1em;
+    }
+    .vehiclesTopWrapper h1{
+        font-size: 2.2em;
+    }
+    br.lg{
+        display: none;
+    }
+    .vehiclesVehiclesNew{
+        flex-direction: column;
+        margin: 0 1em 1em;
+    }
+    #newSwiper{
+        width: 100%;
+    }
+    .vehiclesVehiclesnewInfos span{
+        right: 0;
+    }
+    .vehiclesVehiclesCards{
+        grid-template-columns: 1fr;
+        gap: 1em;
+        max-width: 100%;
+        margin: 0 1em;
+    }
+    .vehiclesVehiclesCard{
+        max-width: calc(100vw - 2em);
+    }
+    .vehiclesVehiclesnewInfos{
+        padding: 1em 1.4em;
+    }
+    .contactTop{
+        max-height: calc(100vh - 80px);
+        display: flex;
+        justify-content: center;
+    }
+    .contactTop img{
+        max-width: unset;
+    }
+    .contactTopOverlay{
+        margin: 2em 1em;
+        width: unset;
+    }
+    .contactTopWrapper h1{
+        font-size: 2.2em;
+    }
+    .contactBody{
+        flex-direction: column;
+    }
+    .contactContacts{
+        width: unset;
+    }
+    .contactBg1, .contactBg2{
+        padding: 0 1em;
+    }
+    .contactCommerce{
+        flex-direction: column;
+    }
+    #map{
+        height: 50vh;
+        width: 100%;
+    }
+    #contactFrance{
+        display: none;
+    }
+    .footerWrapper{
+        flex-direction: column;
+    }
+    .fb-page{
+        align-self: normal;
+    }
+    .vehiclesImageBig img{
+        max-width: 100%;
+        max-height: 70%;
+    }    
+    .vehiclesTopImg{
+        width: unset;
+    }
+    .homeVehiclesFlip{
+        height: 540px;
+    }
+    .fnt-contact{
+        background: linear-gradient(180deg, #ED6227 0%, #ED6227 50%, #1d315a 50%, #1d315a 100%);
+    }
+    .social{
+        justify-content: start;
+        margin-top: 1em;
+    }
+}

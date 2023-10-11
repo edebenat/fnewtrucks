@@ -47,6 +47,8 @@
                         <p>{{ vehicle.type }} | {{ vehicle.gears }} | {{ vehicle.enginePower }} | {{ vehicle.state }}{% if vehicle.mileageFromOdometer is not null %} | {{ vehicle.mileageFromOdometer }}{% endif %}</p>
                         <p class="jass-vehicles-equipments">Équipements :</p>
                         <p class="jass-vehicles-equipments">{{ vehicle.equipments }}</p>
+                        <p class="jass-vehicles-equipments">{{ vehicle.price }}</p>
+                        <p class="jass-vehicles-equipments">{{ vehicle.rental }}</p>
                         <p class="jass-vehicles-guarantee">{{ vehicle.guarantee }}</p>
                     </div>
                     <div class="jass-vehicles-edit">
@@ -72,13 +74,4 @@
         </div>
     </div>
 </section>
-{#
-<script>
-    $(document).ready(function(){
-        $('.slick').slick({
-            dots: true
-        });
-    });
-</script>
-#}
 {% endblock %}

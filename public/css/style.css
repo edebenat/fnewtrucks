@@ -201,6 +201,7 @@ body{
     flex-direction: column;
     gap: 5px;
     letter-spacing: 0.4px;
+    margin-bottom: 0;
 }
 .fnt-footer a{
     color: white;
@@ -213,70 +214,6 @@ body{
     z-index: 1000;
 }
 
-@media screen and (max-width: 1400px) {
-    body{
-        overflow-x: hidden;
-    }
-    #logo-f-new-trucks{
-        left: 16px;
-        height: 70px;
-        width: unset;
-    }
-    #carte-france, #carte-departements{
-        display: none;
-    }
-    .fnt-departements{
-        flex-direction: column;
-    }
-    .fnt-midcol{
-        width: 100%;
-        height: 60px;
-        background: linear-gradient(175deg, #ED6227 0, #ED6227 47%, white 47%, white 52%, #1d315a 52%, #1d315a 100%);
-    }
-    .fnt-col1, .fnt-col2{
-        padding: 16px;
-    }
-    footer{
-        padding: 16px;
-    }
-    .fnt-footer{
-        flex-direction: column;
-        gap: 16px;
-    }
-}
-@media screen and (min-width: 600px) and (max-width: 1400px) {
-    #background{
-        top: 0;
-        transform: unset;
-        width: unset;
-        height: 100%;
-        left: 0;
-    }
-}
-@media screen and (max-width: 599px) {
-    #background{
-        top: 0;
-        transform: translateX(-39%);
-        width: unset;
-        height: 100%;
-        left: 50%;
-    }
-}
-@media screen and (max-width: 1600px) {
-    .fnt-av-commerce p{
-        font-size: 18px;
-        line-height: 24px;
-    }
-    .fnt-col1 h3, .fnt-col2 h3 {
-        font-size: 24px;
-    }
-    .fnt-col1 h4, .fnt-col2 h4{
-        font-size: 22px;
-    }
-    .fnt-col1 h5, .fnt-col2 h5{
-        font-size: 20px;
-    }
-}
 
 .fnt-mentions{
     margin: 0 32px;
@@ -375,7 +312,10 @@ footer{
     font-weight: 100;
     line-height: 1.2em;
 }
-.footerWrapper > div{
+.footerWrapper > div:nth-child(1), .footerWrapper > div:nth-child(2){
+    flex: 2;
+}
+.footerWrapper > div:nth-child(3){
     flex: 1;
 }
 .footerLogo{
@@ -1281,169 +1221,6 @@ footer{
 
 /* -------------------- */
 
-@media screen and (max-width: 600px) {
-    .headerMenu{
-        position: fixed;
-        background-color: black;
-        width: 100vw;
-        height: 100%;
-        top: 75px;
-        left: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        padding-top: 4em;
-        transition: all 0.3s;
-    }
-    .headerMenu.open{
-        left: 0;
-    }
-    .headerMenu ul{
-        flex-direction: column;
-        padding: 0;
-    }
-    .headerMenuOpen{
-        display: block;
-    }
-    .headerLogo{
-        padding-left: 1em;
-    }
-    .homeTop{
-        height: calc(100vh - 80px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-    }
-    .homeTop img{
-        max-width: unset;
-        max-height: 100%;
-    }
-    .homeTopWrapper{
-        margin-top: 1em;
-        padding: 0 1em;
-        width: unset;
-    }
-    .homeTopWrapper h1{
-        font-size: 2.2em;
-    }
-    .homeTopButtons{
-        flex-direction: column;
-        gap: 1em;
-    }
-    .homeTopButtons a{
-        width: fit-content;
-    }
-    .fnt-categories{
-        flex-direction: column;
-        gap: 2em;
-        padding: 0 1em;
-    }
-    .fnt-cat-section p{
-        margin-bottom: 3em;
-    }
-    .homeVehicles{
-        padding: 2em 1em 4em;
-    }
-    .homeVehiclesVehicles{
-        grid-template-columns: 1fr;
-    }
-    .fnt-av-commerce{
-        flex-direction: column;
-    }
-    .vehiclesTop{
-        height: calc(100vh - 80px);
-        display: flex;
-        justify-content: end;
-    }
-    .vehiclesTop img{
-        max-width: unset;
-        height: 100%;
-        transform: translateX(30%);
-    }
-    .vehiclesTopOverlay{
-        background-color: #00000050;
-    }
-    .vehiclesTopWrapper{
-        width: unset;
-        padding: 0 1em;
-    }
-    .vehiclesTopWrapper h1{
-        font-size: 2.2em;
-    }
-    br.lg{
-        display: none;
-    }
-    .vehiclesVehiclesNew{
-        flex-direction: column;
-        margin: 0 1em 1em;
-    }
-    #newSwiper{
-        width: 100%;
-    }
-    .vehiclesVehiclesnewInfos span{
-        right: 0;
-    }
-    .vehiclesVehiclesCards{
-        grid-template-columns: 1fr;
-        gap: 1em;
-        max-width: 100%;
-        margin: 0 1em;
-    }
-    .vehiclesVehiclesCard{
-        max-width: calc(100vw - 2em);
-    }
-    .vehiclesVehiclesnewInfos{
-        padding: 1em 1.4em;
-    }
-    .contactTop{
-        max-height: calc(100vh - 80px);
-        display: flex;
-        justify-content: center;
-    }
-    .contactTop img{
-        max-width: unset;
-    }
-    .contactTopOverlay{
-        margin: 2em 1em;
-        width: unset;
-    }
-    .contactTopWrapper h1{
-        font-size: 2.2em;
-    }
-    .contactBody{
-        flex-direction: column;
-    }
-    .contactContacts{
-        width: unset;
-    }
-    .contactBg1, .contactBg2{
-        padding: 0 1em;
-    }
-    .contactCommerce{
-        flex-direction: column;
-    }
-    #map{
-        height: 50vh;
-        width: 100%;
-    }
-    #contactFrance{
-        display: none;
-    }
-    .footerWrapper{
-        flex-direction: column;
-    }
-    .fb-page{
-        align-self: normal;
-    }
-    .vehiclesImageBig img{
-        max-width: 100%;
-        max-height: 70%;
-    }    
-    .vehiclesTopImg{
-        width: unset;
-    }
-}
 .annexes{
     display: flex;
     flex-direction: column;
@@ -1677,6 +1454,7 @@ footer{
     display: flex;
     flex-direction: column;
     gap: 1em;
+    position: relative;
 }
 .vehicleOneTitle h1{
     font-size: 2.4em;
@@ -1711,6 +1489,13 @@ footer{
 }
 .vehicleOneGuarantee{
     font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+.vehicleOneGuarantee span{
+    padding-top: 0.4em;
 }
 #vehicleGallery{
     position: fixed;
@@ -1729,6 +1514,48 @@ footer{
 }
 #vehicleGallery .slick{
     width: 50%;
+}
+
+.vehicleOnePrice{
+    position: absolute;
+    top: 3rem;
+    right: 4rem;
+    background-color: #ED6227;
+    padding: 0.7em 0.5em 0.5em;
+    color: white;
+    font-size: 1.6em;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.vehicleOneBottom{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+}
+.vehicleOneRental{
+    border: 1px solid black;
+    font-size: 1.2em;
+    padding: 0.5em 0.5em 0.3em;
+}
+.vehiclesFormConfirm{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    gap: 2em;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 1.4em;
+}
+.social{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: end;
+    gap: 1em;
 }
 
 @keyframes mapPoint {

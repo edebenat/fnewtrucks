@@ -59,6 +59,12 @@ class Vehicle
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $carac4 = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $price = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $rental = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -240,6 +246,30 @@ class Vehicle
     public function setCarac4(?string $carac4): static
     {
         $this->carac4 = $carac4;
+
+        return $this;
+    }
+
+    public function getPrice(): ?string
+    {
+        return $this->price;
+    }
+
+    public function setPrice(?string $price): static
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getRental(): ?string
+    {
+        return $this->rental;
+    }
+
+    public function setRental(?string $rental): static
+    {
+        $this->rental = $rental;
 
         return $this;
     }

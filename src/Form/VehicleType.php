@@ -81,6 +81,20 @@ class VehicleType extends AbstractType
                     'placeholder' => 'Garantie constructeur jusqu’au 00/00/0000'
                 ]
             ])
+            ->add('price', TextType::class, [
+                'label' => 'Prix',
+                'required' => false,
+                'attr' => [
+                    'placeholder' => '50 000 €'
+                ]
+            ])
+            ->add('rental', TextType::class, [
+                'label' => 'Loyer',
+                'required' => false,
+                'attr' => [
+                    'placeholder' => '1 500 € / mois'
+                ]
+            ])
         ;
     }
 
