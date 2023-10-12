@@ -65,6 +65,7 @@
 }
 .jass-vehicles-guarantee{
     font-weight: bold;
+    margin: 0;
 }
 .jass-vehicles-edit{
     position: absolute;

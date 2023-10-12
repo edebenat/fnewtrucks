@@ -65,6 +65,12 @@ class Vehicle
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $rental = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $guarantee2 = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $rentalInfo = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -270,6 +276,30 @@ class Vehicle
     public function setRental(?string $rental): static
     {
         $this->rental = $rental;
+
+        return $this;
+    }
+
+    public function getGuarantee2(): ?string
+    {
+        return $this->guarantee2;
+    }
+
+    public function setGuarantee2(?string $guarantee2): static
+    {
+        $this->guarantee2 = $guarantee2;
+
+        return $this;
+    }
+
+    public function getRentalInfo(): ?string
+    {
+        return $this->rentalInfo;
+    }
+
+    public function setRentalInfo(?string $rentalInfo): static
+    {
+        $this->rentalInfo = $rentalInfo;
 
         return $this;
     }
