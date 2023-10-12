@@ -238,4 +238,56 @@
         justify-content: start;
         margin-top: 1em;
     }
+    .vehiclesList{
+        grid-template-columns: 1fr;
+    }
+    .vehicleCard{
+        flex-direction: column;
+        width: calc(100vw - 2em);
+        margin: auto;
+    }
+    .vehicleImage{
+        width: 100%;
+        max-width: 100vw;
+    }
+    .slick-slide{
+        transform: none !important;
+    }
+    .slick{
+        width: 100%;
+    }
+    .slick-list{
+        width: 100%;
+    }
+    .slick-dots{
+        width: 100%;
+    }
+    .vehicleInfos{
+        width: unset;
+    }
+    .fnt-logo-last{
+        top: -45px;
+    }
+    .vehicleOne{
+        flex-direction: column;
+    }
+    .vehicleOneImages{
+        width: 100%;
+    }
+    .vehicleOneDetails{
+        width: calc(100vw - 2em);
+        padding: 4em 0;
+        margin: 0 1em;
+    }
+    .vehicleOnePrice{
+        position: unset;
+        width: fit-content;
+    }
+    .vehicleOneBottom{
+        flex-direction: column;
+        gap: unset;
+    }
+    .contactBody{
+        height: unset;
+    }
 }
