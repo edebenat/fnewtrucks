@@ -195,11 +195,14 @@ class JassController extends AbstractController
         $actu = new Actu();
         $actu->setCreatedAt(new DateTimeImmutable('now'));
         $actu->setActive(false);
+        $date = new DateTime('now');
+        $title = 'Actu'.$date->format('YmdHis');
+        $actu->setTitle($title);
 
         $entityManager->persist($actu);
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_jass_edit', [
+        return $this->redirectToRoute('jass_actus_edit', [
             'id' => $actu->getId()
         ]);
         
@@ -234,6 +237,15 @@ class JassController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('imageFile')->getData();
+            $image = 'images/actus/'.$actu->getId().'/picture.'.$imageFile->guessExtension();
+            if (file_exists($image)) {
+                unlink($image);
+            }
+            $imageFile->move('images/actus/'.$actu->getId(), 'picture.'.$imageFile->guessExtension());
+    
+            $actu->setImage($image);
+
             $entityManager->flush();
 
             return $this->redirectToRoute('jass_actus', [], Response::HTTP_SEE_OTHER);
@@ -256,4 +268,18 @@ class JassController extends AbstractController
         return $this->redirectToRoute('jass_actus', [], Response::HTTP_SEE_OTHER);
     }
 
+    #[Route('/actus/{id}/activate', name: 'jass_actus_activate')]
+    public function jass_actus_activate(Actu $actu, EntityManagerInterface $entityManager): Response
+    {
+        if ($actu->isActive()) {
+            $actu->setActive(false);
+        }
+        else {
+            $actu->setActive(true);
+        }
+        $entityManager->persist($actu);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('jass_actus');
+    }
 }

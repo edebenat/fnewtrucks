@@ -1,0 +1,23 @@
+{{ form_start(form) }}
+    <div class="jass-vehicles-card">
+        <div class="jass-vehicles-infos">
+            <div class="jass-form-fields">
+                {{ form_widget(form.title) }}
+            </div>
+            <div class="jass-form-fields">
+                {{ form_widget(form.abstract) }}
+            </div>
+            <div class="jass-form-fields">
+                {{ form_row(form.content) }}
+            </div>
+            <div class="jass-form-fields">
+                {{ form_widget(form.imageFile) }}
+            </div>
+            {{ form_widget(form) }}
+        </div>
+    </div>
+    <div class="jass-vehicles-editbtn">
+        <button class="jass-vehicles-button green">{{ button_label|default('Valider') }}</button>
+        <a href="{{ path('jass_actus') }}" class="jass-vehicles-button red">Annuler</a>
+    </div>
+{{ form_end(form) }}

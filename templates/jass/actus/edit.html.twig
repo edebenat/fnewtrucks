@@ -1,0 +1,31 @@
+{% extends 'base-jass.html.twig' %}
+
+{% block title %}Editer Actu{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href={{asset("css/jass.css")}}>
+{% endblock %}
+
+{% block javascripts %}
+    <script src={{ asset('js/jass.js') }}></script>
+{% endblock %}
+
+{% block body %}
+<section class="jass-vehicles">
+    <div class="jass-vehicles-wrapper">
+        <h1>Editer Actu</h1>
+        <div class="jass-vehicles-details">
+            {{ include('jass/actus/_form.html.twig') }}
+            <div class="jass-vehicles-images">
+                <div class="jass-vehicles-images-title">
+                    <h2>Image</h2>
+                </div>
+                {% if actu.image is not null %}
+                    <div class="jass-vehicles-image">
+                        <img src={{ asset(actu.image) }}>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
