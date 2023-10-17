@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Actu;
 use App\Entity\Vehicle;
+use App\Form\ActuType;
 use App\Form\VehicleType;
+use App\Repository\ActuRepository;
 use App\Repository\VehicleRepository;
 use DateTime;
 use DateTimeImmutable;
@@ -175,4 +178,82 @@ class JassController extends AbstractController
 
         return $this->json([]);
     }
+
+/* ---------------------------------------------------- */
+
+    #[Route('/actus', name: 'jass_actus', methods: ['GET'])]
+    public function actus(ActuRepository $actuRepository): Response
+    {
+        return $this->render('jass/actus/index.html.twig', [
+            'actus' => $actuRepository->findAll(),
+        ]);
+    }
+
+    #[Route('/actus/new', name: 'jass_actus_new', methods: ['GET', 'POST'])]
+    public function jass_actus_new(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $actu = new Actu();
+        $actu->setCreatedAt(new DateTimeImmutable('now'));
+        $actu->setActive(false);
+
+        $entityManager->persist($actu);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_jass_edit', [
+            'id' => $actu->getId()
+        ]);
+        
+        $form = $this->createForm(ActuType::class, $actu);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($actu);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_jass_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('jass/actus/edit.html.twig', [
+            'actu' => $actu,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/actus/{id}', name: 'jass_actus_show', methods: ['GET'])]
+    public function jass_actus_show(Actu $actu): Response
+    {
+        return $this->render('jass/actus/show.html.twig', [
+            'actu' => $actu,
+        ]);
+    }
+
+    #[Route('/actus/{id}/edit', name: 'jass_actus_edit', methods: ['GET', 'POST'])]
+    public function jass_actus_edit(Request $request, Actu $actu, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(ActuType::class, $actu);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            return $this->redirectToRoute('jass_actus', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('jass/actus/edit.html.twig', [
+            'actu' => $actu,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/actus/{id}', name: 'jass_actus_delete', methods: ['POST'])]
+    public function jass_actus_delete(Request $request, Actu $actu, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$actu->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($actu);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('jass_actus', [], Response::HTTP_SEE_OTHER);
+    }
+
 }
