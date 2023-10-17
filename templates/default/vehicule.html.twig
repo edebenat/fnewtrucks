@@ -126,14 +126,15 @@
         </div>
         {% if vehicle.rental is not empty %}
             <div class="vehicleOneRental">
-                {{ vehicle.rental }}
+                <span>À partir de :<br>{{ vehicle.rental }}</span>
+                <span class="small">{{ vehicle.rentalInfo }}</span>
             </div>            
         {% endif %}
         <div class="vehicleOneBottom">
             <div class="vehicleOneGuarantee">
                 {% if vehicle.guarantee is not empty %}
                     <img src={{ asset('images/garantie.png') }} width=50 height=50>
-                    <span>{{ vehicle.guarantee }}</span>                    
+                    <span>{{ vehicle.guarantee }}<br>{{ vehicle.guarantee2 }}</span>
                 {% endif %}
             </div>
             <div class="btn btnOrange2" onclick="openForm({{vehicle.id}})"><span>Je suis intéressé</span><img src={{ asset('images/orange-arrow.png') }}></div>
