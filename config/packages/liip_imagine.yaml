@@ -36,3 +36,16 @@ liip_imagine:
             filters:
                 thumbnail: {size: [400, 400], mode: outbound}
 
+        actu:
+            quality: 75
+            format: webp
+            filters:
+                relative_resize:
+                    widen: 1920
+    
+        homeActu:
+            quality: 75
+            format: webp
+            filters:
+                relative_resize:
+                    heighten: 500

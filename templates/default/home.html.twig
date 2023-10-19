@@ -91,6 +91,33 @@
     </div>
 </section>
 
+{% if actus is empty %}
+    {% set actusClass = 'hide' %}
+{% else %}
+    {% set actusClass = 'show' %}
+{% endif %}
+<section class="homeActus {{ actusClass }}">
+    <div class="homeActusWrapper">
+        <h2 class="homeActusTitle">Nos actus</h2>
+        <div class="homeActusActus">
+            {% for actu in actus %}
+                <a href={{ path('actu', {'id': actu.id}) }} class="homeActusActu">
+                    <div class="homeActusContent">
+                        <div class="homeActusContentText">
+                            <h3>{{ actu.title }}</h3>
+                            <p>{{ actu.abstract }}</p>
+                        </div>
+                        <div class="btn"><span>En savoir plus</span><img src={{ asset('images/orange-arrow.png') }}></div>
+                    </div>
+                    <div class="homeActusImage">
+                        <img src={{ (actu.image) | imagine_filter('homeActu') }} alt="{{ actu.title }}">
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
 <section id="fnt-contact" class="fnt-contact">
     <div class="fnt-departements">
         <div class="fnt-col1">

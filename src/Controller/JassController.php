@@ -238,13 +238,15 @@ class JassController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $imageFile = $form->get('imageFile')->getData();
-            $image = 'images/actus/'.$actu->getId().'/picture.'.$imageFile->guessExtension();
-            if (file_exists($image)) {
-                unlink($image);
+            if ($imageFile != null) {
+                $image = 'images/actus/'.$actu->getId().'/picture.'.$imageFile->guessExtension();
+                if (file_exists($image)) {
+                    unlink($image);
+                }
+                $imageFile->move('images/actus/'.$actu->getId(), 'picture.'.$imageFile->guessExtension());
+        
+                $actu->setImage($image);                
             }
-            $imageFile->move('images/actus/'.$actu->getId(), 'picture.'.$imageFile->guessExtension());
-    
-            $actu->setImage($image);
 
             $entityManager->flush();
 

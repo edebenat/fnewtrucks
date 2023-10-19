@@ -28,7 +28,7 @@
                 <div class="jass-vehicles-card">
                     <div class="jass-vehicles-imgs {{card_class}}">
                         {% if actu.image is not null %}
-                            <img src={{ image | imagine_filter('vehicle') }} alt="Véhicule Ford">
+                            <img src={{ actu.image | imagine_filter('vehicle') }} alt="Véhicule Ford">
                         {% endif %}
                     </div>
                     <div class="jass-vehicles-infos {{card_class}}">

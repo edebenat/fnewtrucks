@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Actu;
 use App\Entity\Vehicle;
 use App\Form\ContactType;
+use App\Repository\ActuRepository;
 use App\Repository\VehicleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,12 +18,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function home(VehicleRepository $vehicleRepository): Response
+    public function home(VehicleRepository $vehicleRepository, ActuRepository $actuRepository): Response
     {
         $vehicles = $vehicleRepository->findBy(['active' => true], ['createdAt' => 'DESC'], 4);
+        $actus = $actuRepository->findPublishedActu();
 
         return $this->render('default/home.html.twig', [
             'vehicles' => $vehicles,
+            'actus' => $actus
         ]);
     }
 
@@ -91,6 +95,14 @@ class DefaultController extends AbstractController
         return $this->render('default/vehicule.html.twig', [
             'vehicle' => $vehicle,
             'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/actu/{id}', name: 'actu')]
+    public function actu(Actu $actu): Response
+    {
+        return $this->render('default/actu.html.twig', [
+            'actu' => $actu,
         ]);
     }
 

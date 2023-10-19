@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}F New Trucks - {{ actu.title }}{% endblock %}
+{% block description %}
+    "{{ actu.abstract }}"
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
+
+{% block body %}
+    <section class="actuSection">
+        <div class="actuImage">
+            <img src={{ (actu.image) | imagine_filter('actu') }} alt="{{ actu.title }}">
+        </div>
+        <div class="actuWrapper">
+            <h1>{{ actu.title }}</h1>
+            
+            <p class="actuPublishedAt">
+                <img src={{ asset('images/time-and-date.png') }} width=20 height=20>
+                <span>Publié le {{ actu.publishedAt | date('d/m/Y') }}</span>
+            </p>
+            <div class="actuContent">{{ actu.content | raw }}</div>
+        </div>
+    </section>
+{% endblock %}

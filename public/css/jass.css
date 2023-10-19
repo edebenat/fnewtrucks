@@ -142,7 +142,7 @@
     padding: 0.4em 0.2em 0.2em;
     border-radius: 5px;
 }
-.jass-form-fields div{
+.jass-form-fields > div{
     display: flex;
     flex-direction: column;
 }
@@ -157,4 +157,7 @@
 .swiper{
     max-width: 400px;
     height: 250px;
+}
+.jass-form-actus{
+    flex: 2;
 }
