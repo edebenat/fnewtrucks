@@ -91,29 +91,62 @@
     </div>
 </section>
 
-{% if actus is empty %}
-    {% set actusClass = 'hide' %}
-{% else %}
-    {% set actusClass = 'show' %}
-{% endif %}
-<section class="homeActus {{ actusClass }}">
+<section class="homeActus">
     <div class="homeActusWrapper">
-        <h2 class="homeActusTitle">Nos actus</h2>
+        <h2 class="homeActusTitle">A vos côtés au quotidien...</h2>
         <div class="homeActusActus">
-            {% for actu in actus %}
-                <a href={{ path('actu', {'id': actu.id}) }} class="homeActusActu">
-                    <div class="homeActusContent">
-                        <div class="homeActusContentText">
-                            <h3>{{ actu.title }}</h3>
-                            <p>{{ actu.abstract }}</p>
-                        </div>
-                        <div class="btn"><span>En savoir plus</span><img src={{ asset('images/orange-arrow.png') }}></div>
+            <div class="homeActusActu">
+                <div class="homeActusContent">
+                    <div class="homeActusContentText">
+                        <h3>Notre réseau<br>après-vente</h3>
+                        <p>Nous avons choisi des garages implantés depuis des décennies sur leurs territoires pour un service après-vente performant.</p>
                     </div>
-                    <div class="homeActusImage">
-                        <img src={{ (actu.image) | imagine_filter('homeActu') }} alt="{{ actu.title }}">
+                    <a href="#" class="btn"><span>En savoir plus</span><img src={{ asset('images/orange-arrow.png') }}></a>
+                </div>
+                <div class="homeActusImage">
+                    <img src={{ ('images/home/01.jpg') | imagine_filter('homeActu') }} alt="Après-vente">
+                </div>
+                <span class="homeActusNumber">01</span>
+            </div>
+            <div class="homeActusActu">
+                <div class="homeActusContent">
+                    <div class="homeActusContentText">
+                        <h3>La garantie<br>Ford Trucks</h3>
+                        <p>Votre camion Ford Trucks est couvert par trois ans de garantie totale, kilométrage illimité. L’entretien, la réparation et la maintenance s’opèrent dans nos...</p>
                     </div>
-                </a>
-            {% endfor %}
+                    <a href="#" class="btn"><span>En savoir plus</span><img src={{ asset('images/orange-arrow.png') }}></a>
+                </div>
+                <div class="homeActusImage">
+                    <img src={{ ('images/home/02.jpg') | imagine_filter('homeActu') }} alt="Garantie">
+                </div>
+                <span class="homeActusNumber">02</span>
+            </div>
+            <div class="homeActusActu">
+                <div class="homeActusContent">
+                    <div class="homeActusContentText">
+                        <h3>Une équipe<br>à votre service</h3>
+                        <p>Thomas et Boris sont à votre disposition du lundi au vendredi, de 8h à 18h. Nos deux conseillers sauront vous guider vers l’investissement le plus juste.</p>
+                    </div>
+                    <a href="#" class="btn"><span>En savoir plus</span><img src={{ asset('images/orange-arrow.png') }}></a>
+                </div>
+                <div class="homeActusImage">
+                    <img src={{ ('images/home/03.jpg') | imagine_filter('homeActu') }} alt="Equipe">
+                </div>
+                <span class="homeActusNumber">03</span>
+            </div>
+            <div class="homeActusActu">
+                <div class="homeActusContent">
+                    <div class="homeActusContentText">
+                        <h3>Toute l’actu’<br>F New Trucks</h3>
+                        <p>Suivez les évolutions de notre réseau, les manifestations locales et nationales auxquelles nous participons... Toute notre actualité par ici !</p>
+                    </div>
+                    <a href="#" class="btn"><span>En savoir plus</span><img src={{ asset('images/orange-arrow.png') }}></a>
+                </div>
+                <div class="homeActusImage">
+                    <img src={{ ('images/home/04.jpg') | imagine_filter('homeActu') }} alt="Actu">
+                </div>
+                <span class="homeActusNumber">04</span>
+            </div>
         </div>
     </div>
 </section>

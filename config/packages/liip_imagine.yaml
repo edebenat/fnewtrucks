@@ -48,4 +48,4 @@ liip_imagine:
             format: webp
             filters:
                 relative_resize:
-                    heighten: 500
+                    widen: 400
