@@ -290,4 +290,24 @@
     .contactBody{
         height: unset;
     }
+
+    .homeActusActus{
+        grid-template-columns: 1fr;
+    }
+    .homeActusActu{
+        margin: 0 1em;
+    }
+    .homeActusContent{
+        flex: unset;
+    }
+    .homeActusImage img{
+        height: unset;
+        width: 100%;
+    }
+    .homeActusActu:nth-child(even){
+        flex-direction: column;
+    }
+    .homeActusNumber{
+        display: none;
+    }
 }
