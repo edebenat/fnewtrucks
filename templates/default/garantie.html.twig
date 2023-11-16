@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}F New Trucks - Garantie Ford Trucks{% endblock %}
+
+{% block body %}
+<section class="garantieBody">
+    <div class="garantieWrapper">
+        <div class="garantieText">
+            <h1>Garantie Ford Trucks</h1>
+            <h2>3 ans totale, kilométrage illimité</h2>
+            <p>Les camions Ford Trucks sont couvert par trois ans de garantie, kilométrage illimité. L’entretien, la réparation et la maintenance s’opèrent dans nos ateliers en respect des standards du constructeur. De plus, la garantie peut être transférée si vous décidez de vendre votre camion durant cette période.</p>
+            <div class="garantieCollapse">
+                <div class="garantieCollapseSection" id="pieces">
+                    <div class="garantieCollapseTitle">
+                        <img src={{ asset('images/garantie/cle.png') }} width=40 height=40>
+                        <div class="garantieCollapseTitleText">
+                            <h3>Pièces de rechange</h3>
+                            <img src={{ asset('images/fleche-orange.png') }} width=12 height=12 class="arrow open">
+                        </div>
+                    </div>
+                    <div class="garantieCollapseText open">
+                        <p>Ford Trucks n’utilise que des pièces de rechange d’origine. Seules les pièces d’origine peuvent garantir la qualité et la
+sécurité nécessaires pour assurer le maintien de la performance
+et la valeur de votre véhicule. Les pièces de Ford Trucks sont couvertes par une garantie de 2 ans en kilométrage illimité. Si un incident survient à cause d’un défaut de fabrication,
+l’assistance sur route intervient gratuitement.</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="garantieCollapseSection" id="peinture">
+                    <div class="garantieCollapseTitle">
+                        <img src={{ asset('images/garantie/camion.png') }} width=40 height=40>
+                        <div class="garantieCollapseTitleText close">
+                            <h3>Peinture et garantie antirouille</h3>
+                            <img src={{ asset('images/fleche-orange.png') }} width=12 height=12 class="arrow">
+                        </div>
+                    </div>
+                    <div class="garantieCollapseText close">
+                        <p>Ford Trucks n’utilise que des pièces de rechange d’origine. Seules les pièces d’origine peuvent garantir la qualité et la
+sécurité nécessaires pour assurer le maintien de la performance
+et la valeur de votre véhicule. Les pièces de Ford Trucks sont couvertes par une garantie de 2 ans en kilométrage illimité. Si un incident survient à cause d’un défaut de fabrication,
+l’assistance sur route intervient gratuitement.</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="garantieCollapseSection" id="rouille">
+                    <div class="garantieCollapseTitle">
+                        <img src={{ asset('images/garantie/rouiller.png') }} width=40 height=40>
+                        <div class="garantieCollapseTitleText close">
+                            <h3>Prévention de la rouille</h3>
+                            <img src={{ asset('images/fleche-orange.png') }} width=12 height=12 class="arrow">
+                        </div>
+                    </div>
+                    <div class="garantieCollapseText close">
+                        <p>Ford Trucks n’utilise que des pièces de rechange d’origine. Seules les pièces d’origine peuvent garantir la qualité et la
+sécurité nécessaires pour assurer le maintien de la performance
+et la valeur de votre véhicule. Les pièces de Ford Trucks sont couvertes par une garantie de 2 ans en kilométrage illimité. Si un incident survient à cause d’un défaut de fabrication,
+l’assistance sur route intervient gratuitement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="garantieImage">
+            <img src={{ ('images/garantie/f-max.png') | imagine_filter('garantie') }} alt="Camion Ford">
+        </div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function(){
+        $('.garantieCollapseSection').click(function($(this)){
+            if ($(this).hasClass('.close')){
+                $(this).removeClass('.close');
+                
+            }
+                
+            $(this)toggleClass()
+        });
+    });
+</script>
+{% endblock %}

@@ -112,6 +112,12 @@ class DefaultController extends AbstractController
         return $this->render('default/contact.html.twig');
     }
 
+    #[Route('/garantie', name: 'garantie')]
+    public function garantie(): Response
+    {
+        return $this->render('default/garantie.html.twig');
+    }
+
     #[Route('/mentions-legales', name: 'mentions_legales')]
     public function mentions_legales(): Response
     {

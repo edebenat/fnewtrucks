@@ -1690,6 +1690,76 @@ footer{
     margin-top: 3em;
     font-size: 1.1em;
 }
+.garantieBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10rem;
+    padding-top: 4rem;
+}
+.garantieWrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    gap: 10rem;
+}
+.garantieText{
+    width: 700px;
+}
+.garantieText h1{
+    color: #e14221;
+    font-size: 18px;
+}
+.garantieText p{
+    color: #58585c;
+}
+.garantieImage{
+    width: calc((100vw / 2) - 10rem);
+}
+.garantieCollapse{
+    background-color: #ececeb;
+    padding: 1em 2rem;
+}
+.garantieCollapse hr{
+    margin: 1em 0;
+    height: 1px;
+    background-color: black;
+    border: none;
+}
+.garantieCollapseTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+    cursor: pointer;
+}
+.garantieCollapseTitleText{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+}
+.garantieCollapseTitleText h3{
+    margin: 0.2em 0 0;
+    font-size: 18px;
+}
+.garantieCollapseTitleText .arrow{
+    transition: all 0.3s;
+}
+.garantieCollapseTitleText .arrow.open{
+    transform: rotateZ(180deg);
+}
+.garantieCollapseText{
+    overflow: hidden;
+}
+.garantieCollapseText.close{
+    height: 0;
+}
+.garantieCollapseText p{
+    margin-bottom: 0;
+}
 
 @keyframes mapPoint {
     from {
