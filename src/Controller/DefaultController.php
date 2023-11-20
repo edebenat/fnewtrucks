@@ -98,6 +98,16 @@ class DefaultController extends AbstractController
         ]);
     }
 
+    #[Route('/actus', name: 'actus')]
+    public function actus(ActuRepository $actuRepository): Response
+    {
+        $actus = $actuRepository->findPublishedActu();
+
+        return $this->render('default/actus.html.twig', [
+            'actus' => $actus,
+        ]);
+    }
+
     #[Route('/actu/{id}', name: 'actu')]
     public function actu(Actu $actu): Response
     {

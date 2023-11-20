@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}F New Trucks - Toute l'actu F New Trucks{% endblock %}
+{% block description %}
+    ""
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
+
+{% block body %}
+    <section class="actusSection">
+        <h1>Toute l’actu’ F New Trucks</h1>
+        <div class="actusWrapper">
+            {% set i = 0 %}
+            {% for actu in actus %}
+                {% set i = i + 1 %}
+                <div class="actusActu">
+                    <div class="actusText">
+                        <h2>{{ actu.title }}</h2>
+                        <p>{{ actu.abstract }}</p>
+                        <a href={{ path('actu', {'id': actu.id}) }} class="btn"><span>En savoir plus</span><img src={{ asset('images/orange-arrow.png') }} width=12 height=12></a>
+                    </div>
+                    <div class="actusImage">
+                        <img src={{ (actu.image) | imagine_filter('homeActu') }}>
+                    </div>
+                </div>
+                {% if i is not divisible by(4) %}
+                    <hr>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
