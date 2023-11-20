@@ -26,7 +26,7 @@ l’assistance sur route intervient gratuitement.</p>
                     </div>
                 </div>
                 <hr>
-                <div class="garantieCollapseSection" id="peinture">
+                <div class="garantieCollapseSection close" id="peinture">
                     <div class="garantieCollapseTitle">
                         <img src={{ asset('images/garantie/camion.png') }} width=40 height=40>
                         <div class="garantieCollapseTitleText close">
@@ -34,7 +34,7 @@ l’assistance sur route intervient gratuitement.</p>
                             <img src={{ asset('images/fleche-orange.png') }} width=12 height=12 class="arrow">
                         </div>
                     </div>
-                    <div class="garantieCollapseText close">
+                    <div class="garantieCollapseText">
                         <p>Ford Trucks n’utilise que des pièces de rechange d’origine. Seules les pièces d’origine peuvent garantir la qualité et la
 sécurité nécessaires pour assurer le maintien de la performance
 et la valeur de votre véhicule. Les pièces de Ford Trucks sont couvertes par une garantie de 2 ans en kilométrage illimité. Si un incident survient à cause d’un défaut de fabrication,
@@ -42,7 +42,7 @@ l’assistance sur route intervient gratuitement.</p>
                     </div>
                 </div>
                 <hr>
-                <div class="garantieCollapseSection" id="rouille">
+                <div class="garantieCollapseSection close" id="rouille">
                     <div class="garantieCollapseTitle">
                         <img src={{ asset('images/garantie/rouiller.png') }} width=40 height=40>
                         <div class="garantieCollapseTitleText close">
@@ -50,7 +50,7 @@ l’assistance sur route intervient gratuitement.</p>
                             <img src={{ asset('images/fleche-orange.png') }} width=12 height=12 class="arrow">
                         </div>
                     </div>
-                    <div class="garantieCollapseText close">
+                    <div class="garantieCollapseText">
                         <p>Ford Trucks n’utilise que des pièces de rechange d’origine. Seules les pièces d’origine peuvent garantir la qualité et la
 sécurité nécessaires pour assurer le maintien de la performance
 et la valeur de votre véhicule. Les pièces de Ford Trucks sont couvertes par une garantie de 2 ans en kilométrage illimité. Si un incident survient à cause d’un défaut de fabrication,
@@ -67,13 +67,14 @@ l’assistance sur route intervient gratuitement.</p>
 
 <script>
     $(document).ready(function(){
-        $('.garantieCollapseSection').click(function($(this)){
-            if ($(this).hasClass('.close')){
-                $(this).removeClass('.close');
-                
+        var pieces = $('#pieces .garantieCollapseTitleText').height();
+        $('.garantieCollapseSection').click(function(){
+            if ($(this).hasClass('close')){
+                $(this).removeClass('close');
             }
-                
-            $(this)toggleClass()
+            else{
+                $(this).addClass('close');
+            }
         });
     });
 </script>

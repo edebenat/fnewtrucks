@@ -1748,17 +1748,90 @@ footer{
 .garantieCollapseTitleText .arrow{
     transition: all 0.3s;
 }
-.garantieCollapseTitleText .arrow.open{
-    transform: rotateZ(180deg);
+.garantieCollapseSection.close .arrow{
+    transform: rotateZ(-180deg);
 }
 .garantieCollapseText{
     overflow: hidden;
+    height: auto;
+    transition: height 0.3s;
 }
-.garantieCollapseText.close{
+.garantieCollapseSection.close .garantieCollapseText{
     height: 0;
 }
 .garantieCollapseText p{
     margin-bottom: 0;
+}
+
+.contactGarages{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 6em 0;
+}
+.contactGaragesWrapper{
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    gap: 6em;
+}
+.contactGaragesGarage{
+    display: flex;
+    flex-direction: row;
+    gap: 6em;
+}
+.contactGaragesGarage:nth-child(even){
+    flex-direction: row-reverse;
+}
+.contactGaragesGarage .col{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex: 1;
+}
+.contactGaragesGarage .col ul{
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    color: #df4029;
+    gap: 0.5em;
+}
+.contactGaragesGarage .col ul hr{
+    margin: 0;
+    background-color: #df4029;
+    border: none;
+    width: 2px;
+    height: 0.9em;
+}
+.contactGaragesGarage .col h2{
+    font-size: 2em;
+    line-height: 1.2em;
+    margin-bottom: 0.2em;
+}
+.contactGaragesGarage .col p{
+    color: #58585c;
+    font-size: 1.1em;
+    line-height: 1.2em;
+}
+.contactGaragesGarage .col .btn{
+    padding-left: 0;
+    color: #df4029;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.contactGaragesGarage .col .tinyimg{
+    position: absolute;
+    bottom: -35px;
+    left: -60px;
+    border: 6px solid white;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(50% + 50px);
+    height: 150px;
 }
 
 @keyframes mapPoint {

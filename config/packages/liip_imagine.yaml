@@ -56,3 +56,10 @@ liip_imagine:
             filters:
                 relative_resize:
                     widen: 1000
+
+        garage:
+            quality: 75
+            format: webp
+            filters:
+                relative_resize:
+                    widen: 700
