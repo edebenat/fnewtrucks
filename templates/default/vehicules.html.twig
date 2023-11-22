@@ -28,6 +28,38 @@
 
 <section class="vehiclesVehicles">
     <div class="vehiclesVehiclesWrapper">
+        <div class="homeVehiclesVehicles">
+            {% for vehicle in vehiclesList %}
+                <div class="homeVehiclesFlip">
+                    <a href={{ path('vehicule', {'id': vehicle.id}) }} class="homeVehiclesCard">
+                        <div class="front">
+                            <div class="homeVehiclesImage">
+                                {% if vehicle.images[0] is defined %}
+                                    <img src={{ vehicle.images[0] | imagine_filter('homeVehicle') }} alt="Véhicule Ford">                            
+                                {% endif %}
+                            </div>
+                            <div class="homeVehiclesInfos">
+                                <h2>{{ vehicle.model }}</h2>
+                                <p>{{ vehicle.type }} | {{ vehicle.gears }} | {{ vehicle.enginePower }}<br>{{ vehicle.state }}{% if vehicle.mileageFromOdometer is not null %} | {{ vehicle.mileageFromOdometer }}{% endif %}</p>
+                                <div class="homeVehiclesLink">
+                                    <span>En savoir plus</span>
+                                    <img src={{ asset('images/orange-arrow.png') }}>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <img src={{ asset('images/favicon.png') }}>
+                            <div class="btn">
+                                <span>En savoir plus</span>
+                                <img src={{ asset('images/orange-arrow.png') }}>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+{#
         <div class="vehiclesList">
             {% for vehicle in vehiclesList %}
                 <div class="vehicleCard">
@@ -138,6 +170,7 @@
                 </div>
             {% endfor %}
         </div>
+#}
     </div>
 </section>
 

@@ -229,7 +229,7 @@
         width: unset;
     }
     .homeVehiclesFlip{
-        height: 540px;
+        height: 560px;
     }
     .fnt-contact{
         background: linear-gradient(180deg, #ED6227 0%, #ED6227 50%, #1d315a 50%, #1d315a 100%);
@@ -309,5 +309,56 @@
     }
     .homeActusNumber{
         display: none;
+    }
+
+    .garantieText{
+        margin: 0 1em;
+    }
+    .garantieImage{
+        display: none;
+    }
+    .garantieBody{
+        padding-bottom: 5rem;
+        padding-top: 2rem;
+    }
+
+    .vehiclesVehicles{
+        padding: 2em 1em;
+    }
+
+    .contactGaragesGarage .col ul{
+        flex-wrap: wrap;
+    }
+    .contactGaragesWrapper{
+        max-width: 100%;
+        margin: 0 1em;
+    }
+    .contactGaragesGarage{
+        flex-direction: column;
+        gap: 2em;
+    }
+    .contactGaragesGarage:nth-child(even){
+        flex-direction: column;
+    }
+    .contactGarages{
+        margin: 3em 0 6em;
+    }
+
+    .homeActusContentText h3 .lg{
+        display: none;
+    }
+
+    .actusSection h1{
+        font-size: 1.8em;
+    }
+    .actusWrapper{
+        grid-template-columns: 1fr;
+    }
+    .actusWrapper div:nth-of-type(even){
+        flex-direction: column;
+    }
+    .actusImage img{
+        max-width: 100%;
+        height: unset;
     }
 }

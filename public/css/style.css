@@ -759,6 +759,7 @@ footer{
     flex-direction: column;
     align-items: center;
     padding: 2em 0 4em;
+    background-color: #ececeb;
 }
 .vehiclesVehiclesWrapper{
     width: 100%;
@@ -1714,6 +1715,7 @@ footer{
 }
 .garantieText p{
     color: #58585c;
+    line-height: 1.2em;
 }
 .garantieImage{
     width: calc((100vw / 2) - 10rem);
@@ -1747,17 +1749,14 @@ footer{
 }
 .garantieCollapseTitleText .arrow{
     transition: all 0.3s;
+    transform: rotateZ(-180deg);
 }
 .garantieCollapseSection.close .arrow{
-    transform: rotateZ(-180deg);
+    transform: rotateZ(0);
 }
 .garantieCollapseText{
     overflow: hidden;
-    height: auto;
     transition: height 0.3s;
-}
-.garantieCollapseSection.close .garantieCollapseText{
-    height: 0;
 }
 .garantieCollapseText p{
     margin-bottom: 0;
@@ -1856,18 +1855,43 @@ footer{
     background-color: black;
     border: none;
     width: 1px;
+    margin-bottom: 0;
 }
 .actusActu{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 1em;
+}
+.actusWrapper div:nth-of-type(even){
+    flex-direction: column-reverse;
 }
 .actusText{
     flex: 2;
     line-height: 1.2em;
 }
+.actusText h2{
+    font-size: 1.8em;
+    line-height: 1em;
+}
+.actusText .btn{
+    color: #df4029;
+    padding-left: 0;
+    font-weight: bold;
+}
 .actusImage{
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+}
+.actusImage img{
+    position: absolute;
+    max-width: unset;
+    height: 100%;
 }
 
 @keyframes mapPoint {
