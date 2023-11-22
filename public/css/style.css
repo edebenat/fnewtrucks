@@ -1657,17 +1657,16 @@ footer{
 }
 
 .actuSection{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding-bottom: 4em;
 }
 .actuWrapper{
-    width: 100%;
+    width: calc(50vw - (100vw - 1400px + 8em) / 2);
     max-width: 1400px;
+    padding: 4em;
 }
 .actuImage{
-    height: 20em;
     position: relative;
     display: flex;
     align-items: center;
