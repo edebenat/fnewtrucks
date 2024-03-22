@@ -45,11 +45,13 @@
                         <li>
                             <a href={{ path('contact') }}><span>Nos centres</span><img src={{ asset('images/orange-arrow.png') }} class="headerMenuArrow" width=12 height=12></a>
                         </li>
+                        {#
                         <li>
                             <a href={{ path('actus') }}><span>Actus</span><img src={{ asset('images/orange-arrow.png') }} class="headerMenuArrow" width=12 height=12></a>
                         </li>
+                        #}
                         <li>
-                            <a href="https://fordtrucks.com.tr/fr/" target="_blank"><span>Découvrir Ford Trucks</span><img src={{ asset('images/orange-arrow.png') }} class="headerMenuArrow" width=12 height=12></a>
+                            <a href="http://fordtrucksfrance.fr" target="_blank"><span>Découvrir Ford Trucks</span><img src={{ asset('images/orange-arrow.png') }} class="headerMenuArrow" width=12 height=12></a>
                         </li>
                         <li class="headerTel">
                             <a href="tel: +33545205945">
@@ -87,9 +89,11 @@
                 </div>
                 <div class="fnt-footer">
                     <ul>
-                        <li><a href="https://fordtrucks.com.tr/fr/">Découvrir Ford Trucks</a></li>
+                        <li><a href="http://fordtrucksfrance.fr">Découvrir Ford Trucks</a></li>
                         <li><a href={{ path('vehicules') }}>Véhicules en stock</a></li>
+                        {#
                         <li><a href={{ path('actus') }}>Actualités</a></li>
+                        #}
                         <li><a href={{ path('contact') }}>Contacts</a></li>
                         <li><a href={{ path('garantie') }}>Garantie Ford Trucks</a></li>
                         <li><a href={{ path('mentions_legales') }}>Mentions légales</a></li>
