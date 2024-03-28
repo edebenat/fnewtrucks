@@ -11,6 +11,7 @@ use App\Repository\VehicleRepository;
 use DateTime;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
+use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -73,13 +74,14 @@ class JassController extends AbstractController
     }
 
     #[Route('/vehicules/{id}/edit', name: 'app_jass_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Vehicle $vehicle, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Vehicle $vehicle, EntityManagerInterface $entityManager, CacheManager $cacheManager): Response
     {
         $form = $this->createForm(VehicleType::class, $vehicle);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
+            $cacheManager->remove(null, ['homeVehicle', 'largeVehicle']);
 
             return $this->redirectToRoute('app_jass_index', [], Response::HTTP_SEE_OTHER);
         }

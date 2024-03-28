@@ -16,7 +16,7 @@
     <div class="vehicleOneImages">
             <div class="slider-for">
                 {% for image in vehicle.images %}
-                    <img src={{ asset(image) }} alt="{{vehicle.model}}">
+                    <img src={{ (image) | imagine_filter('largeVehicle') }} alt="{{vehicle.model}}">
                 {% endfor %}
             </div>
             <div class="slider-nav">
