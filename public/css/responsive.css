@@ -18,8 +18,9 @@
         height: 60px;
         background: linear-gradient(175deg, #ED6227 0, #ED6227 47%, white 47%, white 52%, #1d315a 52%, #1d315a 100%);
     }
-    .fnt-col1, .fnt-col2{
+    .fnt-col1, .fnt-col2, .fnt-col3{
         padding: 16px;
+        align-items: baseline;
     }
     footer{
         padding: 16px;
@@ -56,13 +57,13 @@
         font-size: 18px;
         line-height: 24px;
     }
-    .fnt-col1 h3, .fnt-col2 h3 {
+    .fnt-col1 h3, .fnt-col2 h3, .fnt-col3 h3 {
         font-size: 24px;
     }
-    .fnt-col1 h4, .fnt-col2 h4{
+    .fnt-col1 h4, .fnt-col2 h4, .fnt-col3 h4{
         font-size: 22px;
     }
-    .fnt-col1 h5, .fnt-col2 h5{
+    .fnt-col1 h5, .fnt-col2 h5, .fnt-col3 h5{
         font-size: 20px;
     }
 }
@@ -232,7 +233,7 @@
         height: 560px;
     }
     .fnt-contact{
-        background: linear-gradient(180deg, #ED6227 0%, #ED6227 50%, #1d315a 50%, #1d315a 100%);
+        background: linear-gradient(180deg, #84888c 0%, #84888c 33.3%, #ED6227 33.3%, #ED6227 66.6%, #1d315a 66.6%, #1d315a 100%);
     }
     .social{
         justify-content: start;
