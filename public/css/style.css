@@ -976,6 +976,13 @@ footer{
     height: 100%;
     flex-direction: column;
 }
+.contactBg0{
+    background-color: #84888c;
+    display: flex;
+    justify-content: end;
+    height: 50%;
+    align-items: center;
+}
 .contactBg1{
     background-color: #ED6227;
     display: flex;
@@ -983,9 +990,9 @@ footer{
     height: 50%;
     align-items: center;
 }
-.contactCol1, .contactCol2{
+.contactCol0, .contactCol1, .contactCol2{
     flex: 1;
-    padding: 3% 3% 3% 0;
+    padding: 0 3% 0 0;
     max-width: calc(700px - 3%);
     position: relative;
 }
@@ -996,12 +1003,21 @@ footer{
     height: 50%;
     align-items: center;
 }
-.contactCol1 h3, .contactCol2 h3{
+.contactCol0 h3, .contactCol1 h3, .contactCol2 h3{
     margin-bottom: 5px;
-    font-size: 26px;
+    font-size: 24px;
     position: relative;
     max-width: fit-content;
     animation: contactCol 1s;
+}
+.contactCol0 h3::after{
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: #27408c;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
 }
 .contactCol1 h3::after{
     content: "";
@@ -1021,21 +1037,27 @@ footer{
     bottom: -10px;
     left: 0;
 }
+.contactCol0 h4{
+    text-transform: uppercase;
+    margin: 1.5em 0 0.8em;
+    color: #27408c;
+    font-size: 22px;
+}
 .contactCol1 h4{
     text-transform: uppercase;
-    margin: 2em 0 1em;
+    margin: 1.5em 0 0.8em;
     color: #1d315a;
-    font-size: 24px;
+    font-size: 22px;
 }
 .contactCol2 h4{
     text-transform: uppercase;
-    margin: 2em 0 1em;
+    margin: 1.5em 0 0.8em;
     color: #ED6227;
-    font-size: 24px;
-}
-.contactCol1 h5, .contactCol2 h5{
-    margin: 0;
     font-size: 22px;
+}
+.contactCol0 h5, .contactCol1 h5, .contactCol2 h5{
+    margin: 0;
+    font-size: 20px;
 }
 .contactCol1 hr{
     height: 3px;
@@ -1065,8 +1087,8 @@ footer{
 }
 .contactCommerce p{
     font-weight: 100;
-    font-size: 18px;
-    line-height: 26px;
+    font-size: 16px;
+    line-height: 22px;
     margin-top: 7px;
 }
 .contactLogo{
@@ -1076,6 +1098,21 @@ footer{
 #map{
     height: auto;
     width: 50vw;
+}
+.grey-icon{
+    width: 6px;
+    height: 6px;
+    background-color: #84888c;
+    background-clip: content-box;
+    padding: 2px;
+    border: 1px solid #84888c;
+}
+.grey-icon::after{
+    content: '';
+    background-color: #84888c;
+    display: block;
+    transition: all 0.3s;
+    animation: 0.8s ease-in infinite alternate mapPoint;
 }
 .orange-icon{
     width: 6px;
@@ -1123,7 +1160,7 @@ footer{
     bottom: 0;
     right: 0;
     width: 250px;
-    transform: translate(44%, 50%);
+    transform: translate(44%, -10%);
     z-index: 1000;
 }
 .jass-footer{

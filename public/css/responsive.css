@@ -203,7 +203,7 @@
     .contactContacts{
         width: unset;
     }
-    .contactBg1, .contactBg2{
+    .contactBg0, .contactBg1, .contactBg2{
         padding: 0 1em;
     }
     .contactCommerce{

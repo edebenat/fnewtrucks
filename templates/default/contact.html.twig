@@ -25,6 +25,31 @@
 <section class="contactBody">
     <div class="contactContacts">
         <div class="contactDepartements">
+            <div class="contactBg0">
+                <div class="contactCol0">
+                    <h3>F NEW TRUCKS 24</h3>
+                    <div class="contactCommerce">
+                        <div class="fnt-av">
+                            <h4>Après-vente</h4>
+                            <h5>Garage DAL MAS</h5>
+                            <p>
+                                7 route de St Nexans<br>
+                                24100 Bergerac<br>
+                                <a href="tel:+33553271414">05 53 27 14 14</a>
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Commerce</h4>
+                            <h5>Thomas TROUSSARD</h5>
+                            <p>
+                                <a href="mailto:t.troussard@fnewtrucks.fr">t.troussard@fnewtrucks.fr</a>
+                                <br>
+                                <a href="tel:+33679813600">06 79 81 36 00</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="contactBg1">
                 <div class="contactCol1">
                     <h3>F NEW TRUCKS 79</h3>
@@ -143,7 +168,7 @@
     $(document).ready(function(){
         var map = L.map('map', {
             attributionControl: false
-        }).setView([46.0383664, 0.1579431,8.75], 8);
+        }).setView([46.0383664, 0.1579431,8.75], 7);
         L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/about" target="_blank">OpenStreetMap</a>'
@@ -153,8 +178,13 @@
             position: 'bottomleft'
         }).addTo(map);
 
+        var greyIcon = L.divIcon({className: 'grey-icon'});
         var orangeIcon = L.divIcon({className: 'orange-icon'});
         var blueIcon = L.divIcon({className: 'blue-icon'});
+
+        var dalmas = L.marker([44.836077, 0.4916], {icon: greyIcon})
+            .addTo(map)
+            .bindPopup("<b>Garage Dal Mas</b><br>7 route de St Nexans<br>24100 Bergerac", {closeOnClick: false, autoClose: false});
 
         var jaulin = L.marker([46.4214743, -0.209751], {icon: orangeIcon})
             .addTo(map)
