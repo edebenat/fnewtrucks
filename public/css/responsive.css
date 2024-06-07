@@ -20,8 +20,11 @@
     }
     .fnt-col1, .fnt-col2, .fnt-col3{
         padding: 16px;
-        align-items: baseline;
+        align-items: center;
     }
+	.fnt-col2{
+		border-left: none;
+		border-top: 2px solid #1d315a;
     footer{
         padding: 16px;
     }
@@ -62,6 +65,7 @@
     }
     .fnt-col1 h4, .fnt-col2 h4, .fnt-col3 h4{
         font-size: 22px;
+		gap: 2em;
     }
     .fnt-col1 h5, .fnt-col2 h5, .fnt-col3 h5{
         font-size: 20px;

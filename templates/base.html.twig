@@ -115,9 +115,9 @@
             $(window).on('scroll', function(){
                 var scroll2 = $("#fnt-contact").position().top - 500;
                 if ($(this).scrollTop() > scroll2) {
-                    $('.fnt-col1').addClass('show');
-                    $('.fnt-col2').addClass('show');
-                    $('.fnt-col3').addClass('show');
+                    $('.fnt-col1>div').addClass('show');
+                    $('.fnt-col2>div').addClass('show');
+                    $('.fnt-col3>div').addClass('show');
                 }
             });
         </script>
