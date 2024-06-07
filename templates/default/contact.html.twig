@@ -37,6 +37,7 @@
                                 24100 Bergerac<br>
                                 <a href="tel:+33553271414">05 53 27 14 14</a>
                             </p>
+							<img src={{asset("images/dal_mas.png")}} alt="Garage Dal Mas" class="contactLogo">
                         </div>
                         <div>
                             <h4>Commerce</h4>
@@ -74,7 +75,32 @@
                             </p>
                         </div>
                     </div>
-                    <img src={{ asset('images/carte-france.png') }} alt="Carte de France" id="contactFrance">
+                </div>
+            </div>
+            <div class="contactBg1">
+                <div class="contactCol1">
+                    <h3>F NEW TRUCKS 86</h3>
+                    <div class="contactCommerce">
+                        <div class="fnt-av">
+                            <h4>Après-vente</h4>
+                            <h5>Garage JAULIN</h5>
+                            <p>
+                                Parc d'Activité Anthyllis<br>
+                                86340 Fleuré<br>
+                                <a href="tel:+33549534320">05 49 53 43 20</a>
+                            </p>
+                            <img src={{asset("images/logo-jaulin.png")}} alt="Garage Jaulin" class="contactLogo">
+                        </div>
+                        <div>
+                            <h4>Commerce</h4>
+                            <h5>Boris VADELEAU</h5>
+                            <p>
+                                <a href="mailto:b.vadeleau@fnewtrucks.fr">b.vadeleau@fnewtrucks.fr</a>
+                                <br>
+                                <a href="tel:+33616334331">06 16 33 43 31</a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="contactBg2">
@@ -89,6 +115,7 @@
                                 87430 Verneuil-sur-Vienne<br>
                                 <a href="tel:+33555480483">05 55 48 04 83</a>
                             </p>
+							<img src={{asset("images/ceapl.png")}} alt="Garage CEAPL" class="contactLogo">
                         </div>
                         <div>
                             <h4>Commerce</h4>
@@ -106,6 +133,7 @@
     </div>
     <div class="contactMap" id="map">
     </div>
+	<img src={{ asset('images/carte-france.png') }} alt="Carte de France" id="contactFrance">
 </section>
 
 <section class="contactGarages">
@@ -189,6 +217,10 @@
         var jaulin = L.marker([46.4214743, -0.209751], {icon: orangeIcon})
             .addTo(map)
             .bindPopup("<b>Garage Jaulin</b><br>11 avenue Charles de Gaulle<br>79400 Saint-Maixent-l’École", {closeOnClick: false, autoClose: false});
+
+        var jaulin86 = L.marker([46.4892826, 0.5078413], {icon: orangeIcon})
+            .addTo(map)
+            .bindPopup("<b>Garage Jaulin</b><br>Parc d'Activité Anthyllis<br>86340 Fleuré", {closeOnClick: false, autoClose: false});
 
         var ceapl = L.marker([45.8496109, 1.1622291], {icon: blueIcon})
             .addTo(map)
